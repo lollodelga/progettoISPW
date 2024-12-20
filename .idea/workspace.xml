@@ -4,45 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Controller/RegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/MainProgetto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Bean/BeanManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Bean/UserBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/ConnectionFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/LoginDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/RegistrationDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Registration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Util/GController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/FirsPageGCon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/HomePageGCon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/LoginGCon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/RegisterGCon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/CSSfiles/DefaultStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/CSSfiles/RegistrationStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/iconApp.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/tutorLOGO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/wallpaper.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/FirstPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/LoginPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/RegisterPage.fxml" afterDir="false" />
+    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="Primo checkpoint. Ho quasi completato la gestione dell'user.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +66,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.VCS",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -169,14 +132,45 @@
       <workItem from="1732699409711" duration="3000" />
       <workItem from="1732699427408" duration="692000" />
       <workItem from="1732737700421" duration="557000" />
-      <workItem from="1734537243786" duration="3601000" />
+      <workItem from="1734537243786" duration="3831000" />
+      <workItem from="1734727407080" duration="762000" />
     </task>
+    <task id="LOCAL-00001" summary="Primo checkpoint. Ho quasi completato la gestione dell'user.">
+      <option name="closed" value="true" />
+      <created>1734727244143</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734727244143</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Primo checkpoint. Ho quasi completato la gestione dell'user.">
+      <option name="closed" value="true" />
+      <created>1734727427171</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734727427171</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Primo checkpoint. Ho quasi completato la gestione dell'user." />
+    <option name="LAST_COMMIT_MESSAGE" value="Primo checkpoint. Ho quasi completato la gestione dell'user." />
   </component>
 </project>
