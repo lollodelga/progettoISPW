@@ -1,0 +1,15 @@
+.button {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-text-fill: black;
+}
+.text-field {
+    -fx-border-color: blue;
+    -fx-border-width: 2;
+}
+#BarraSuperiore {
+    -fx-border-color: transparent transparent blue transparent;
+    -fx-border-width: 0 0 2 0;
+}

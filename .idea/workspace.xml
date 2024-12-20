@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Controller/RegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/MainProgetto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Bean/BeanManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Bean/UserBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/ConnectionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/LoginDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/RegistrationDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Registration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Util/GController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/FirsPageGCon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/HomePageGCon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/LoginGCon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/RegisterGCon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CSSfiles/DefaultStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CSSfiles/RegistrationStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/iconApp.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/tutorLOGO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/wallpaper.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/FirstPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/LoginPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/RegisterPage.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2kI0GqZTKgz7h3q8wbvsZ9yol8B" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Main.executor": "Run",
+    "Application.MainProgetto.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.VCS",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ldg.progettoispw.Main" />
+      <module name="progettoISPW" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ldg.progettoispw.View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="" />
+      <created>1722955700403</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722955700403</updated>
+      <workItem from="1722955701542" duration="3283000" />
+      <workItem from="1723042941201" duration="9604000" />
+      <workItem from="1725553405672" duration="1230000" />
+      <workItem from="1725655068020" duration="324000" />
+      <workItem from="1725655417489" duration="3500000" />
+      <workItem from="1725659132726" duration="946000" />
+      <workItem from="1725660480202" duration="59000" />
+      <workItem from="1725697265315" duration="449000" />
+      <workItem from="1725697891912" duration="1555000" />
+      <workItem from="1725700024812" duration="76000" />
+      <workItem from="1725721147716" duration="2032000" />
+      <workItem from="1725910285464" duration="119000" />
+      <workItem from="1725910417140" duration="1177000" />
+      <workItem from="1727683954652" duration="1294000" />
+      <workItem from="1727889904400" duration="402000" />
+      <workItem from="1727894706697" duration="14365000" />
+      <workItem from="1728912940998" duration="655000" />
+      <workItem from="1729519216804" duration="701000" />
+      <workItem from="1729522298737" duration="23828000" />
+      <workItem from="1730926857275" duration="2093000" />
+      <workItem from="1731087355991" duration="8548000" />
+      <workItem from="1731521225799" duration="22898000" />
+      <workItem from="1732289730194" duration="13346000" />
+      <workItem from="1732699409711" duration="3000" />
+      <workItem from="1732699427408" duration="692000" />
+      <workItem from="1732737700421" duration="557000" />
+      <workItem from="1734537243786" duration="3601000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
