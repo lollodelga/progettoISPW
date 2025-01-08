@@ -1,4 +1,4 @@
-package ldg.progettoispw.Model.DAO;
+package ldg.progettoispw.model.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

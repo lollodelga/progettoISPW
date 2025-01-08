@@ -7,6 +7,6 @@ module ldg.progettoispw {
 
     opens ldg.progettoispw to javafx.fxml;
     exports ldg.progettoispw;
-    exports ldg.progettoispw.View;
-    opens ldg.progettoispw.View to javafx.fxml;
+    exports ldg.progettoispw.view;
+    opens ldg.progettoispw.view to javafx.fxml;
 }

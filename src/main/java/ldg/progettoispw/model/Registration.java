@@ -1,8 +1,8 @@
-package ldg.progettoispw.Model;
+package ldg.progettoispw.model;
 
 import javafx.event.ActionEvent;
-import ldg.progettoispw.Model.DAO.RegistrationDAO;
-import ldg.progettoispw.Util.GController;
+import ldg.progettoispw.model.dao.RegistrationDAO;
+import ldg.progettoispw.util.GController;
 
 import java.util.Date;
 import java.text.ParseException;

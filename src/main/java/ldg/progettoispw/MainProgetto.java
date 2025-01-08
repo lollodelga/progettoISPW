@@ -12,7 +12,7 @@ public class MainProgetto extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FirstPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/Images/iconApp.jpeg")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/iconApp.jpeg")));
         stage.setTitle("TutorOnline");
         stage.setResizable(false);
         stage.show();

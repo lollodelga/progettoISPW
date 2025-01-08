@@ -1,11 +1,11 @@
-package ldg.progettoispw.View;
+package ldg.progettoispw.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ldg.progettoispw.Model.Bean.BeanManager;
-import ldg.progettoispw.Model.Bean.UserBean;
+import ldg.progettoispw.model.bean.BeanManager;
+import ldg.progettoispw.model.bean.UserBean;
 
 public class HomePageGCon {
     private Stage stage;

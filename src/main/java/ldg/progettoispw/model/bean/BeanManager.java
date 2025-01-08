@@ -1,4 +1,4 @@
-package ldg.progettoispw.Model.Bean;
+package ldg.progettoispw.model.bean;
 
 public class BeanManager {
     //SINGLETON

@@ -1,4 +1,4 @@
-package ldg.progettoispw.Model.DAO;
+package ldg.progettoispw.model.dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -30,7 +30,7 @@ public class RegistrationDAO {
                 java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
                 cstmt.setDate(5, sqlDate);
             } catch (Exception e) {
-                e.printStackTrace();
+                System.err.println("Error in checkInDB: " + e.getMessage());
             }
             cstmt.setString(6, values[6]);
             cstmt.registerOutParameter(7, Types.INTEGER);

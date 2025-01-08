@@ -1,8 +1,8 @@
-package ldg.progettoispw.Controller;
+package ldg.progettoispw.controller;
 
 import javafx.event.ActionEvent;
-import ldg.progettoispw.Model.Registration;
-import ldg.progettoispw.Util.GController;
+import ldg.progettoispw.model.Registration;
+import ldg.progettoispw.util.GController;
 
 public class RegisterController {
     private String[] RegistValues = new String[7];

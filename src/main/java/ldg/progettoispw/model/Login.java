@@ -1,11 +1,11 @@
-package ldg.progettoispw.Model;
+package ldg.progettoispw.model;
 
 import javafx.event.ActionEvent;
-import ldg.progettoispw.Model.Bean.BeanManager;
-import ldg.progettoispw.Model.Bean.UserBean;
-import ldg.progettoispw.Model.DAO.LoginDAO;
-import ldg.progettoispw.Model.DAO.UserDAO;
-import ldg.progettoispw.Util.GController;
+import ldg.progettoispw.model.bean.BeanManager;
+import ldg.progettoispw.model.bean.UserBean;
+import ldg.progettoispw.model.dao.LoginDAO;
+import ldg.progettoispw.model.dao.UserDAO;
+import ldg.progettoispw.util.GController;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -68,6 +68,8 @@ public class Login {
                 result = 4;
                 this.loginGC.changeView(result, this.actionEvent);
                 break;
+            default:
+                System.err.println("Errore!!");
         }
     }
 

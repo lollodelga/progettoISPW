@@ -1,15 +1,16 @@
-package ldg.progettoispw.Controller;
+package ldg.progettoispw.controller;
 
 import javafx.event.ActionEvent;
-import ldg.progettoispw.Model.Bean.UserBean;
-import ldg.progettoispw.Model.Login;
-import ldg.progettoispw.Util.GController;
+import ldg.progettoispw.model.bean.UserBean;
+import ldg.progettoispw.model.Login;
+import ldg.progettoispw.util.GController;
 
 public class LoginController {
     private UserBean user = new UserBean();
     private Login login = new Login();
     private GController loginGC;
-    private String email, password;
+    private String email;
+    private String password;
     private ActionEvent actionEvent;
 
     public LoginController(String emailValue, String passwordValue, GController gController, ActionEvent actionEventvalue) {

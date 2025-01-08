@@ -16,11 +16,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ldg.progettoispw.View.RegisterGCon">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ldg.progettoispw.view.RegisterGCon">
    <children>
       <ImageView fitHeight="537.0" fitWidth="1000.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Images/wallpaper.jpeg" />
+            <Image url="@../../images/wallpaper.jpeg" />
          </image>
       </ImageView>
       <AnchorPane fx:id="BarraSuperiore" prefHeight="63.0" prefWidth="1000.0">
@@ -32,7 +32,7 @@
             </Text>
             <ImageView fitHeight="48.0" fitWidth="171.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Images/tutorLOGO.png" />
+                  <Image url="@../../images/tutorLOGO.png" />
                </image>
             </ImageView>
             <Button layoutX="876.0" layoutY="15.0" mnemonicParsing="false" onAction="#BACKaction" prefHeight="34.0" prefWidth="109.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" />
@@ -158,7 +158,7 @@
       </Label>
    </children>
    <stylesheets>
-      <URL value="@../../CSSfiles/DefaultStyle.css" />
-      <URL value="@../../CSSfiles/RegistrationStyle.css" />
+      <URL value="@../../cssfiles/DefaultStyle.css" />
+      <URL value="@../../cssfiles/RegistrationStyle.css" />
    </stylesheets>
 </AnchorPane>

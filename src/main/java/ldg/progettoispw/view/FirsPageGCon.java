@@ -1,4 +1,4 @@
-package ldg.progettoispw.View;
+package ldg.progettoispw.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

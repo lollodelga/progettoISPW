@@ -1,4 +1,4 @@
-package ldg.progettoispw.View;
+package ldg.progettoispw.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,8 +13,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import ldg.progettoispw.Controller.RegisterController;
-import ldg.progettoispw.Util.GController;
+import ldg.progettoispw.controller.RegisterController;
+import ldg.progettoispw.util.GController;
 
 import java.io.IOException;
 

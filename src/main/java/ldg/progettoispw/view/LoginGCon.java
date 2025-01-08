@@ -1,4 +1,4 @@
-package ldg.progettoispw.View;
+package ldg.progettoispw.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,8 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import ldg.progettoispw.Controller.LoginController;
-import ldg.progettoispw.Util.GController;
+import ldg.progettoispw.controller.LoginController;
+import ldg.progettoispw.util.GController;
 
 import java.io.IOException;
 
@@ -69,6 +69,7 @@ public class LoginGCon implements GController {
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
+                break;
             case 1:
                 warningLabel.setText("ERRORE: Password errata.");
                 warningLabel.setVisible(true);
