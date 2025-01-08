@@ -22,9 +22,8 @@ public class LoginDAO {
 
     private boolean userExists(String email) {
         boolean check;
-        try{
-            Connection conn = connectionFactory.getDBConnection();
-            CallableStatement callableStatement = conn.prepareCall("{call checkExistence(?, ?)}");
+        try(Connection conn = connectionFactory.getDBConnection();
+            CallableStatement callableStatement = conn.prepareCall("{call checkExistence(?, ?)}")){
             callableStatement.setString(1, email);
             callableStatement.registerOutParameter(2, Types.BOOLEAN);
             callableStatement.executeQuery();
@@ -37,9 +36,8 @@ public class LoginDAO {
 
     private boolean finalCheck(String email, String password){
         boolean check;
-        try{
-            Connection conn = connectionFactory.getDBConnection();
-            CallableStatement callableStatement = conn.prepareCall("{call checkPassword(?, ?, ?)}");
+        try (Connection conn = connectionFactory.getDBConnection();
+             CallableStatement callableStatement = conn.prepareCall("{call checkPassword(?, ?, ?)}")){
             callableStatement.setString(1, email);
             callableStatement.setString(2, password);
             callableStatement.registerOutParameter(3, Types.BOOLEAN);

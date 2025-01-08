@@ -56,6 +56,9 @@ public class Login {
                         result = 2;
                         this.loginGC.changeView(result, this.actionEvent);
                         break;
+                    default:
+                        System.err.println("Errore!!");
+                        break;
                 }
                 break;
             case 1:
@@ -70,6 +73,7 @@ public class Login {
                 break;
             default:
                 System.err.println("Errore!!");
+                break;
         }
     }
 

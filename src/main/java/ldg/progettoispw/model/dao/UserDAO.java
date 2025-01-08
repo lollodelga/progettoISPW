@@ -8,9 +8,8 @@ public class UserDAO {
     private String subjects;
     private final ConnectionFactory cf = ConnectionFactory.getInstance();
     public String[] takeData(String email, String password){
-        try{
-            Connection conn = cf.getDBConnection();
-            CallableStatement cs = conn.prepareCall("{call takeData(?, ?, ?, ?, ?)}");
+        try(Connection conn = cf.getDBConnection();
+            CallableStatement cs = conn.prepareCall("{call takeData(?, ?, ?, ?, ?)}")){
             cs.setString(1, email);
             cs.setString(2, password);
             cs.registerOutParameter(3, Types.VARCHAR);
@@ -32,9 +31,8 @@ public class UserDAO {
     public String takeSubjects(String email){
         /*devo creare un metodo, che mi permetta di prendere le subject disaccoppiate e riaccoppiarle. Processo
         * inverso da quello fatto in precedenza per la registrazione*/
-        try{
-            Connection conn = cf.getDBConnection();
-            CallableStatement cs = conn.prepareCall("{call getSubjects(?, ?)}");
+        try(Connection conn = cf.getDBConnection();
+            CallableStatement cs = conn.prepareCall("{call getSubjects(?, ?)}")){
             cs.setString(1, email);
             cs.registerOutParameter(2, Types.VARCHAR);
             cs.execute();

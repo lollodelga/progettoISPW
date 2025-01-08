@@ -90,6 +90,8 @@ public class LoginGCon implements GController {
                 warningLabel.setVisible(true);
                 warningRectangle.setVisible(true);
                 break;
+            default:
+                warningLabel.setText("ERRORE DI SISTEMA: riprovare");
         }
     }
 }

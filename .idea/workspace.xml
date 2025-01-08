@@ -4,33 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="Start 24/12 pt3">
+    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="08/01 1. maintainability">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/MainProgetto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/MainProgetto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Bean/BeanManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/bean/BeanManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/bean/UserBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/ConnectionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/LoginDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/RegistrationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/RegistrationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Model/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/Util/GController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/util/GController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/FirsPageGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/FirsPageGCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/HomePageGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomePageGCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/LoginGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/LoginGCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/View/RegisterGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/RegisterGCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CSSfiles/DefaultStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cssfiles/DefaultStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CSSfiles/RegistrationStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cssfiles/RegistrationStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/iconApp.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/iconApp.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/tutorLOGO.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/tutorLOGO.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/wallpaper.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/wallpaper.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/FirstPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/FirstPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/LoginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/LoginPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/RegisterPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/RegisterPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/LoginDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +137,7 @@
       <workItem from="1732737700421" duration="557000" />
       <workItem from="1734537243786" duration="3831000" />
       <workItem from="1734727407080" duration="9218000" />
-      <workItem from="1736349236353" duration="1010000" />
+      <workItem from="1736349236353" duration="2450000" />
     </task>
     <task id="LOCAL-00001" summary="Primo checkpoint. Ho quasi completato la gestione dell'user.">
       <option name="closed" value="true" />
@@ -209,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735052706030</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="08/01 1. maintainability">
+      <option name="closed" value="true" />
+      <created>1736350336547</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1736350336547</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +219,7 @@
     <MESSAGE value="Start 24/12" />
     <MESSAGE value="Start 24/12 pt2" />
     <MESSAGE value="Start 24/12 pt3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start 24/12 pt3" />
+    <MESSAGE value="08/01 1. maintainability" />
+    <option name="LAST_COMMIT_MESSAGE" value="08/01 1. maintainability" />
   </component>
 </project>
