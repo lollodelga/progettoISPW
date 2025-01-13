@@ -64,7 +64,56 @@ public class Registration {
         };
     }
 
-    private void firstControl(String[] strings){
+    private void firstControl(String[] strings) {
+        if (checkForNullOrEmpty(strings)) {
+            this.result = 1; // Se c'è un valore null o vuoto
+        } else if (!isValidEmail(email)) {
+            this.result = 2; // Se l'email non è valida
+        } else if (!isValidPassword(password)) {
+            this.result = 3; // Se la password non soddisfa i requisiti
+        } else if (!isValidDate(strings[2])) {
+            this.result = 4; // Se la data non è valida
+        }
+    }
+
+    // Metodo che verifica se ci sono valori nulli o vuoti
+    private boolean checkForNullOrEmpty(String[] strings) {
+        for (int i = 0; i < 6; i++) {
+            if (strings[i] == null || "".equals(strings[i].trim())) {
+                return true; // Se c'è un elemento null o vuoto
+            }
+        }
+        return false;
+    }
+
+    // Metodo che verifica la validità dell'email tramite regex
+    private boolean isValidEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    // Metodo che verifica la validità della password tramite regex
+    private boolean isValidPassword(String password) {
+        String passwordRegex = "^(?=.*[A-Z])(?=.*\\d)(?=.*[:!?$%&;])[A-Za-z\\d:!?$%&;]{8,16}$";
+        return password.matches(passwordRegex);
+    }
+
+    // Metodo che verifica la validità della data
+    private boolean isValidDate(String dateString) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false); // Rende il controllo rigoroso
+        try {
+            Date date = dateFormat.parse(dateString);
+            return !date.after(new Date()); // Controlla che la data non sia nel futuro
+        } catch (ParseException e) {
+            return false; // La data non è valida
+        }
+    }
+}
+
+/*    private void firstControl(String[] strings){
         for (int i = 0; i < 6; i++) {
             if (strings[i] == null || "".equals(strings[i].trim())) {
                 // con il primo controllo vedo se ho elementi nulli
@@ -107,4 +156,4 @@ public class Registration {
             }
         }
     }
-}
+*/

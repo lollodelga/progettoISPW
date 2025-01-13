@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="08/01 1. maintainability">
+    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="08/01 2. maintainability">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/LoginDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Registration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +135,7 @@
       <workItem from="1732737700421" duration="557000" />
       <workItem from="1734537243786" duration="3831000" />
       <workItem from="1734727407080" duration="9218000" />
-      <workItem from="1736349236353" duration="2450000" />
+      <workItem from="1736349236353" duration="7014000" />
     </task>
     <task id="LOCAL-00001" summary="Primo checkpoint. Ho quasi completato la gestione dell'user.">
       <option name="closed" value="true" />
@@ -195,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736350336547</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="08/01 2. maintainability">
+      <option name="closed" value="true" />
+      <created>1736351855438</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1736351855438</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +226,7 @@
     <MESSAGE value="Start 24/12 pt2" />
     <MESSAGE value="Start 24/12 pt3" />
     <MESSAGE value="08/01 1. maintainability" />
-    <option name="LAST_COMMIT_MESSAGE" value="08/01 1. maintainability" />
+    <MESSAGE value="08/01 2. maintainability" />
+    <option name="LAST_COMMIT_MESSAGE" value="08/01 2. maintainability" />
   </component>
 </project>
