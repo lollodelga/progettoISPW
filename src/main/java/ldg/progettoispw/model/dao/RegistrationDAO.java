@@ -1,14 +1,19 @@
 package ldg.progettoispw.model.dao;
 
+import ldg.progettoispw.model.Login;
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.text.SimpleDateFormat;
+import java.util.logging.Logger;
 
 public class RegistrationDAO {
     ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
     private int ris = 0;
+    private static final Logger loggerRegistrationDAO = Logger.getLogger(Login.class.getName());
+
     //check nel db dell'esistenza di un utiente con tale email e di conseguenza o crea un nuovo utente o ritorna error
     public int checkInDB(String[] values){
         try {
@@ -30,7 +35,7 @@ public class RegistrationDAO {
                 java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
                 cstmt.setDate(5, sqlDate);
             } catch (Exception e) {
-                System.err.println("Error in checkInDB: " + e.getMessage());
+                loggerRegistrationDAO.warning("Error in checkInDB: " + e.getMessage());
             }
             cstmt.setString(6, values[6]);
             cstmt.registerOutParameter(7, Types.INTEGER);
