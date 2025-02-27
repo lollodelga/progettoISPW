@@ -14,8 +14,8 @@ public class Registration {
     private String[] valori;
     private String email, password;
     private int result = 0;
-    private GController gContIstance;
-    private ActionEvent eventIstance;
+    private final GController gContIstance;
+    private final ActionEvent eventIstance;
     private int change;
     public Registration(GController gController, ActionEvent event) {
         this.gContIstance = gController;
@@ -44,7 +44,7 @@ public class Registration {
                 }
                 change = 0;
                 gContIstance.changeView(change, eventIstance);
-            };
+            }
         }else if(this.result ==1){
             //errore: compilare tutti i campi INVIA 2
             change = 2;
@@ -61,7 +61,7 @@ public class Registration {
             //errore: data non valida INVIA 5
             change = 5;
             gContIstance.changeView(change, eventIstance);
-        };
+        }
     }
 
     private void firstControl(String[] strings) {
@@ -79,7 +79,7 @@ public class Registration {
     // Metodo che verifica se ci sono valori nulli o vuoti
     private boolean checkForNullOrEmpty(String[] strings) {
         for (int i = 0; i < 6; i++) {
-            if (strings[i] == null || "".equals(strings[i].trim())) {
+            if (strings[i] == null || strings[i].trim().isEmpty()) {
                 return true; // Se c'è un elemento null o vuoto
             }
         }
