@@ -7,19 +7,21 @@ import ldg.progettoispw.model.dao.LoginDAO;
 import ldg.progettoispw.model.dao.UserDAO;
 import ldg.progettoispw.util.GController;
 
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Login {
     private GController loginGC;
-    private LoginDAO loginDAO = new LoginDAO();
+    private final LoginDAO loginDAO = new LoginDAO();
     private ActionEvent actionEvent;
     private UserBean userBean;
     private String email, password;
     private int result = 0;
-    private UserDAO userDAO = new UserDAO();
+    private final UserDAO userDAO = new UserDAO();
     private String[] data = new String[6];
     private final BeanManager beanManager = BeanManager.getInstance();
+    private static final Logger loggerLogin = Logger.getLogger(Login.class.getName());
 
     public void setIstance(GController loginGCvalue, ActionEvent actionEventValue, String emailValue, String passwordValue, UserBean userBeanvalue) {
         this.loginGC = loginGCvalue;
@@ -57,7 +59,7 @@ public class Login {
                         this.loginGC.changeView(result, this.actionEvent);
                         break;
                     default:
-                        System.err.println("Errore!!");
+                        loggerLogin.severe("Errore! loginDAO.start() ha preso un valore non consentito");
                         break;
                 }
                 break;
@@ -72,7 +74,7 @@ public class Login {
                 this.loginGC.changeView(result, this.actionEvent);
                 break;
             default:
-                System.err.println("Errore!!");
+                loggerLogin.severe("Errore! result ha preso un valore non consentito");
                 break;
         }
     }
