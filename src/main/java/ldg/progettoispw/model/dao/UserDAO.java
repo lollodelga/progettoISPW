@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 
 public class UserDAO {
     private String[] data = new String[6];
-    private String subjects;
     private final ConnectionFactory cf = ConnectionFactory.getInstance();
     public String[] takeData(String email, String password){
         try(Connection conn = cf.getDBConnection();
@@ -29,6 +28,7 @@ public class UserDAO {
         return this.data;
     }
     public String takeSubjects(String email){
+        String subjects;
         /*devo creare un metodo, che mi permetta di prendere le subject disaccoppiate e riaccoppiarle. Processo
         * inverso da quello fatto in precedenza per la registrazione*/
         try(Connection conn = cf.getDBConnection();
@@ -36,10 +36,10 @@ public class UserDAO {
             cs.setString(1, email);
             cs.registerOutParameter(2, Types.VARCHAR);
             cs.execute();
-            this.subjects = cs.getString(2);
+            subjects = cs.getString(2);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return this.subjects;
+        return subjects;
     }
 }

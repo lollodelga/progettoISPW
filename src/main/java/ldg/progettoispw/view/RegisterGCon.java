@@ -99,7 +99,7 @@ public class RegisterGCon implements GController {
         } else if (roleGroup.getSelectedToggle() == studenteButton) {
             ruoloTG = "2";
         }
-        controller.Register(nomeTF, cognomeTF, birthTF, emailTF, passwordTF, materieTF, ruoloTG);
+        controller.register(nomeTF, cognomeTF, birthTF, emailTF, passwordTF, materieTF, ruoloTG);
     }
 
 

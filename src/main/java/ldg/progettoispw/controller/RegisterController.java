@@ -5,7 +5,7 @@ import ldg.progettoispw.model.Registration;
 import ldg.progettoispw.util.GController;
 
 public class RegisterController {
-    private String[] RegistValues = new String[7];
+    private String[] registValues = new String[7];
     private GController gControllerIstance;
     private ActionEvent actionEvent;
 
@@ -18,15 +18,15 @@ public class RegisterController {
 
 /*il controller grafico chiama il comando della registrazione e manda i dati scritti nella view. Dopo di ciò spetta al
 * controller applicativo chiamare metodi del model, affinché si possano fare gli appositi controlli sui dati*/
-    public void Register(String Name, String Surname, String Birth, String Email, String Password, String Subjects, String Role){
-        this.RegistValues[0] = Name;
-        this.RegistValues[1] = Surname;
-        this.RegistValues[2] = Birth;
-        this.RegistValues[3] = Email;
-        this.RegistValues[4] = Password;
-        this.RegistValues[5] = Subjects;
-        this.RegistValues[6] = Role;
+    public void register(String name, String surname, String birth, String email, String password, String subjects, String role){
+        this.registValues[0] = name;
+        this.registValues[1] = surname;
+        this.registValues[2] = birth;
+        this.registValues[3] = email;
+        this.registValues[4] = password;
+        this.registValues[5] = subjects;
+        this.registValues[6] = role;
         Registration reg = new Registration(gControllerIstance, actionEvent);
-        reg.start(RegistValues);
+        reg.start(registValues);
     }
 }
