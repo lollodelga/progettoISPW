@@ -19,9 +19,9 @@ public class Login {
     private String email, password;
     private int result = 0;
     private final UserDAO userDAO = new UserDAO();
-    private String[] data = new String[6];
     private final BeanManager beanManager = BeanManager.getInstance();
     private static final Logger loggerLogin = Logger.getLogger(Login.class.getName());
+    private String[] data;
 
     public void setIstance(GController loginGCvalue, ActionEvent actionEventValue, String emailValue, String passwordValue, UserBean userBeanvalue) {
         this.loginGC = loginGCvalue;
@@ -31,7 +31,7 @@ public class Login {
         this.userBean = userBeanvalue;
     }
     public void login(){
-        checkData(this.email, this.password);
+        checkData(email, password);
         switch(result){
             case 0:
                 //check non trova problemi, allora vado in DAO per il login
@@ -41,7 +41,7 @@ public class Login {
                         //set del bean e la notifica alla view
                         this.data = userDAO.takeData(this.email, this.password);
                         this.data[5] = userDAO.takeSubjects(this.email);
-                        this.userBean.set(data);
+                        this.userBean.set(this.data);
                         beanManager.setUserBean(this.userBean);
                         result = 0;
                         this.loginGC.changeView(result, this.actionEvent);

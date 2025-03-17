@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class LoginDAO {
     private int result = 0;
     private final ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
-    private static final Logger loggerLoginDAO = Logger.getLogger(Login.class.getName());
+    private static final Logger loggerLoginDAO = Logger.getLogger(LoginDAO.class.getName());
 
 
     public int start(String email, String password) {

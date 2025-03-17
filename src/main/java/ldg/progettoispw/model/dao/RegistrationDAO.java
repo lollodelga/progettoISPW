@@ -1,18 +1,18 @@
 package ldg.progettoispw.model.dao;
 
-import ldg.progettoispw.model.Login;
-
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.text.SimpleDateFormat;
 import java.util.logging.Logger;
+import java.text.ParseException;
+
 
 public class RegistrationDAO {
     ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
     private int ris = 0;
-    private static final Logger loggerRegistrationDAO = Logger.getLogger(Login.class.getName());
+    private static final Logger loggerRegistrationDAO = Logger.getLogger(RegistrationDAO.class.getName());
 
     //check nel db dell'esistenza di un utiente con tale email e di conseguenza o crea un nuovo utente o ritorna error
     public int checkInDB(String[] values){
@@ -25,18 +25,7 @@ public class RegistrationDAO {
             cstmt.setString(2, values[4]);
             cstmt.setString(3, values[0]);
             cstmt.setString(4, values[1]);
-            //converto la string birth in tipo date di sql
-            try {
-                // Passaggio 1: Converti la stringa in java.util.Date usando SimpleDateFormat
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                java.util.Date utilDate = sdf.parse(values[2]);  // Parso la stringa
-
-                // Passaggio 2: Converti java.util.Date in java.sql.Date
-                java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-                cstmt.setDate(5, sqlDate);
-            } catch (Exception e) {
-                loggerRegistrationDAO.warning("Error in checkInDB: " + e.getMessage());
-            }
+            cstmt.setDate(5, convertToSQLDate(values[2]));
             cstmt.setString(6, values[6]);
             cstmt.registerOutParameter(7, Types.INTEGER);
             cstmt.execute();
@@ -46,6 +35,18 @@ public class RegistrationDAO {
             return ris;
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    // Metodo per convertire la stringa in una data SQL
+    private java.sql.Date convertToSQLDate(String dateString) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date utilDate = sdf.parse(dateString);
+            return new java.sql.Date(utilDate.getTime());
+        } catch (ParseException e) {
+            loggerRegistrationDAO.warning("Errore nel parsing della data: " + e.getMessage());
+            throw new IllegalArgumentException("Formato data invalido: " + dateString, e);
         }
     }
 
