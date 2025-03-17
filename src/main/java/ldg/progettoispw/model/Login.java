@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 public class Login {
     private GController loginGC;
-    private final LoginDAO loginDAO = new LoginDAO();
+    private LoginDAO loginDAO = new LoginDAO();
     private ActionEvent actionEvent;
     private UserBean userBean;
     private String email, password;
