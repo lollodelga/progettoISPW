@@ -11,4 +11,8 @@ public class DBException extends Exception {
     {
         super(s);
     }
+
+    public DBException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

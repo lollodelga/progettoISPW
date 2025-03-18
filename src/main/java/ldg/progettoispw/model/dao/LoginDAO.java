@@ -1,7 +1,6 @@
 package ldg.progettoispw.model.dao;
 
 import ldg.progettoispw.exception.DBException;
-import ldg.progettoispw.model.Login;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -26,7 +25,7 @@ public class LoginDAO {
                 result = 2;
             }
         } catch (DBException e) {
-            loggerLoginDAO.warning("Errore nel check dell'utente" + e.getMessage());
+            loggerLoginDAO.warning("Errore del DB durante il login " + e.getMessage());
         }
         return result;
     }
@@ -40,7 +39,7 @@ public class LoginDAO {
             callableStatement.executeQuery();
             check = callableStatement.getBoolean(2);
         } catch (SQLException e) {
-            throw new DBException("Errore durante la verifica dell'esistenza dell'utente");
+            throw new DBException("durante la verifica dell'esistenza dell'utente");
         }
         return check;
     }
@@ -55,7 +54,7 @@ public class LoginDAO {
             callableStatement.executeQuery();
             check = callableStatement.getBoolean(3);
         } catch (SQLException e) {
-            throw new DBException("Errore durante la verifica dell'esistenza dell'utente");
+            throw new DBException("durante la verifica della password");
         }
         return check;
     }

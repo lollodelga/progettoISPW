@@ -23,13 +23,13 @@ public class RegisterGCon implements GController {
     private Scene scene;
     private Parent root;
     @FXML
-    private TextField Cognome;
+    private TextField cognome;
     @FXML
-    private TextField Email;
+    private TextField email;
     @FXML
-    private TextField Nascita;
+    private TextField nascita;
     @FXML
-    private TextField Nome;
+    private TextField nome;
     @FXML
     private TextField materie;
     @FXML
@@ -70,7 +70,7 @@ public class RegisterGCon implements GController {
     }
 
     @FXML
-    private void BACKaction(ActionEvent event){
+    private void backaction(ActionEvent event){
         try {
             root = FXMLLoader.load(getClass().getResource("/ldg/progettoispw/FirstPage.fxml"));
         } catch (IOException e) {
@@ -83,12 +83,12 @@ public class RegisterGCon implements GController {
     }
 
     @FXML
-    private void Register(ActionEvent event){
+    private void register(ActionEvent event){
         RegisterController controller = new RegisterController(this, event);
-        String nomeTF = Nome.getText();
-        String cognomeTF = Cognome.getText();
-        String birthTF = Nascita.getText();
-        String emailTF = Email.getText();
+        String nomeTF = nome.getText();
+        String cognomeTF = cognome.getText();
+        String birthTF = nascita.getText();
+        String emailTF = email.getText();
         String passwordTF = password.getText();
         String materieTF = materie.getText();
         String ruoloTG = "";
@@ -120,7 +120,7 @@ public class RegisterGCon implements GController {
                 stage.show();
                 break;
             case 1:
-                warningLabel.setText("ERRORE: Email già in uso.");
+                warningLabel.setText("ERRORE: email già in uso.");
                 warningLabel.setVisible(true);
                 warningRectangle.setVisible(true);
                 break;
@@ -130,7 +130,7 @@ public class RegisterGCon implements GController {
                 warningRectangle.setVisible(true);
                 break;
             case 3:
-                warningLabel.setText("ERRORE: Email non valida.");
+                warningLabel.setText("ERRORE: email non valida.");
                 warningLabel.setVisible(true);
                 warningRectangle.setVisible(true);
                 break;

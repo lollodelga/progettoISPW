@@ -1,5 +1,7 @@
 package ldg.progettoispw.model.dao;
 
+import ldg.progettoispw.exception.DBException;
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -11,11 +13,10 @@ import java.text.ParseException;
 
 public class RegistrationDAO {
     ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
-    private int ris = 0;
     private static final Logger loggerRegistrationDAO = Logger.getLogger(RegistrationDAO.class.getName());
 
     //check nel db dell'esistenza di un utiente con tale email e di conseguenza o crea un nuovo utente o ritorna error
-    public int checkInDB(String[] values){
+    public int checkInDB(String[] values) throws DBException {
         try {
             Connection conn = connectionFactory.getDBConnection();
             CallableStatement cstmt = conn.prepareCall("{call checkEmail(?,?,?,?,?,?,?)}"); //cambiare la chiamata di tale procedura
@@ -29,42 +30,42 @@ public class RegistrationDAO {
             cstmt.setString(6, values[6]);
             cstmt.registerOutParameter(7, Types.INTEGER);
             cstmt.execute();
-            ris = cstmt.getInt(7);
+            int ris = cstmt.getInt(7);
             cstmt.close();
 //          il valore di ritorno può essere diverso da 0 e in tal caso significa che l'utente già esisteva
             return ris;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new DBException("Errore durante il controllo dell'email nel DB");
         }
     }
 
     // Metodo per convertire la stringa in una data SQL
-    private java.sql.Date convertToSQLDate(String dateString) {
+    private java.sql.Date convertToSQLDate(String dateString) throws DBException {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date utilDate = sdf.parse(dateString);
             return new java.sql.Date(utilDate.getTime());
         } catch (ParseException e) {
             loggerRegistrationDAO.warning("Errore nel parsing della data: " + e.getMessage());
-            throw new IllegalArgumentException("Formato data invalido: " + dateString, e);
+            throw new DBException("Formato data invalido: " + dateString, e);
         }
     }
 
     //inserisco la materia, solo se non è già presente nek DB
-    public void InsertSubject(String subject){
+    public void insertSubject(String subject) throws DBException {
         try{
             Connection conn = connectionFactory.getDBConnection();
             CallableStatement cstmt = conn.prepareCall("{call insertSubject(?)}");
             cstmt.setString(1, subject);
             cstmt.execute();
             cstmt.close();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new DBException("Errore durante l'inserimento della materia nel DB", e);
         }
     }
 
     //creo l'associazione molti a molti tra users e materie
-    public void CreateAssociation(String email, String subject){
+    public void createAssociation(String email, String subject) throws DBException {
         try{
             Connection conn = connectionFactory.getDBConnection();
             CallableStatement cstmt = conn.prepareCall("{call creaAssociazione(?,?)}");
@@ -73,7 +74,7 @@ public class RegistrationDAO {
             cstmt.execute();
             cstmt.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new DBException("Errore durante la creazione dell'associazione tra utente e materia", e);
         }
     }
 }

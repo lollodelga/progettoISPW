@@ -1,12 +1,14 @@
 package ldg.progettoispw.model;
 
 import javafx.event.ActionEvent;
+import ldg.progettoispw.exception.DBException;
 import ldg.progettoispw.model.dao.RegistrationDAO;
 import ldg.progettoispw.util.GController;
 
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,6 +18,9 @@ public class Registration {
     private int result = 0;
     private final GController gContIstance;
     private final ActionEvent eventIstance;
+    private static final Logger loggerRegistration = Logger.getLogger(Registration.class.getName());
+
+
     public Registration(GController gController, ActionEvent event) {
         gContIstance = gController;
         eventIstance = event;
@@ -27,39 +32,46 @@ public class Registration {
         email = strings[3];
         password = strings[4];
         firstControl(valori);
-        if(result ==0){
-            RegistrationDAO dao = new RegistrationDAO();
-            if(dao.checkInDB(valori)==1){
-                //già esiste tale user e allora va notificato alla view INVIA 1
-                change = 1;
-                gContIstance.changeView(change, this.eventIstance);
-            } else{
-                // nuovo utente aggiunto. Dividi la stringa in base alla virgola e rimuovi eventuali spazi
-                // per poi chiamare n volte quanti sono le materie il metodo per creare l'associazione materia user
-                String[] materie = valori[5].split(",");
-                for (String materia : materie) {
-                    String materiaFinale = materia.trim(); // Rimuovi spazi bianchi
-                    dao.InsertSubject(materiaFinale);
-                    dao.CreateAssociation(email, materiaFinale);
+        try {
+            if (result == 0) {
+                RegistrationDAO dao = new RegistrationDAO();
+                if (dao.checkInDB(valori) == 1) {
+                    //già esiste tale user e allora va notificato alla view INVIA 1
+                    change = 1;
+                    gContIstance.changeView(change, this.eventIstance);
+                } else {
+                    // nuovo utente aggiunto. Dividi la stringa in base alla virgola e rimuovi eventuali spazi
+                    // per poi chiamare n volte quanti sono le materie il metodo per creare l'associazione materia user
+                    String[] materie = valori[5].split(",");
+                    for (String materia : materie) {
+                        String materiaFinale = materia.trim(); // Rimuovi spazi bianchi
+                        dao.insertSubject(materiaFinale);
+                        dao.createAssociation(email, materiaFinale);
+                    }
+                    change = 0;
+                    gContIstance.changeView(change, eventIstance);
                 }
-                change = 0;
+            } else if (result == 1) {
+                //errore: compilare tutti i campi INVIA 2
+                change = 2;
+                gContIstance.changeView(change, eventIstance);
+            } else if (result == 2) {
+                //errore: email errata o inesistente INVIA 3
+                change = 3;
+                gContIstance.changeView(change, eventIstance);
+            } else if (result == 3) {
+                //errore: password non rispetta i requisiti INVIA 4
+                change = 4;
+                gContIstance.changeView(change, eventIstance);
+            } else if (result == 4) {
+                //errore: data non valida INVIA 5
+                change = 5;
                 gContIstance.changeView(change, eventIstance);
             }
-        }else if(result ==1){
-            //errore: compilare tutti i campi INVIA 2
-            change = 2;
-            gContIstance.changeView(change, eventIstance);
-        }else if(result ==2){
-            //errore: email errata o inesistente INVIA 3
-            change = 3;
-            gContIstance.changeView(change, eventIstance);
-        }else if(result ==3){
-            //errore: password non rispetta i requisiti INVIA 4
-            change = 4;
-            gContIstance.changeView(change, eventIstance);
-        }else if(result ==4){
-            //errore: data non valida INVIA 5
-            change = 5;
+        }catch (DBException e) {
+            // Gestisci l'errore: logga o notifica un errore generico alla vista
+            loggerRegistration.warning("Errore durante la registrazione: " + e.getMessage());
+            change = 6; // Codice per errore DB
             gContIstance.changeView(change, eventIstance);
         }
     }

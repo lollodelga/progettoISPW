@@ -36,7 +36,7 @@ public class LoginGCon implements GController {
     }
 
     @FXML
-    void BACKaction(ActionEvent event) {
+    void backaction(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("/ldg/progettoispw/FirstPage.fxml"));
         } catch (IOException e) {
@@ -49,10 +49,10 @@ public class LoginGCon implements GController {
     }
 
     @FXML
-    void Login(ActionEvent event) {
-        String INemail = email.getText();
-        String INpassword = password.getText();
-        controller = new LoginController(INemail, INpassword, this, event);
+    void login(ActionEvent event) {
+        String inEmail = email.getText();
+        String inPassword = password.getText();
+        controller = new LoginController(inEmail, inPassword, this, event);
         controller.start();
     }
 

@@ -35,7 +35,7 @@
                   <Image url="@../../images/tutorLOGO.png" />
                </image>
             </ImageView>
-            <Button layoutX="876.0" layoutY="15.0" mnemonicParsing="false" onAction="#BACKaction" prefHeight="34.0" prefWidth="109.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" />
+            <Button layoutX="876.0" layoutY="15.0" mnemonicParsing="false" onAction="#backaction" prefHeight="34.0" prefWidth="109.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" />
          </children>
       </AnchorPane>
       <ScrollPane layoutX="206.0" layoutY="112.0" prefHeight="438.0" prefWidth="587.0">
@@ -70,7 +70,7 @@
                         <Font size="25.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="Nome">
+                  <TextField fx:id="nome">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -80,7 +80,7 @@
                         <Font size="25.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="Cognome">
+                  <TextField fx:id="cognome">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -90,7 +90,7 @@
                         <Font size="25.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="Nascita">
+                  <TextField fx:id="nascita">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -100,7 +100,7 @@
                         <Font size="25.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="Email">
+                  <TextField fx:id="email">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -130,7 +130,7 @@
                         <Font size="3.0" />
                      </font>
                   </Text>
-                  <Button defaultButton="true" mnemonicParsing="false" onAction="#Register" prefHeight="78.0" prefWidth="204.0" text="REGISTRATI">
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#register" prefHeight="78.0" prefWidth="204.0" text="REGISTRATI">
                      <font>
                         <Font size="25.0" />
                      </font>
