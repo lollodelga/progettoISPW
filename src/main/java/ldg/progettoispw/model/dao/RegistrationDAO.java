@@ -14,7 +14,7 @@ import java.text.ParseException;
 public class RegistrationDAO {
     ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
     private static final Logger loggerRegistrationDAO = Logger.getLogger(RegistrationDAO.class.getName());
-    private static final String erroreChiusura = "Errore nel chiudere le risorse: ";
+    private static final String CHIUDERE_LE_RISORSE = "Errore nel chiudere le risorse: ";
 
     //check nel db dell'esistenza di un utiente con tale email e di conseguenza o crea un nuovo utente o ritorna error
     public int checkInDB(String[] values) throws DBException {
@@ -40,7 +40,7 @@ public class RegistrationDAO {
             try {
                 if (cstmt != null) cstmt.close();
             } catch (SQLException e) {
-                loggerRegistrationDAO.warning(erroreChiusura + e.getMessage());
+                loggerRegistrationDAO.warning(CHIUDERE_LE_RISORSE + e.getMessage());
             }
         }
     }
@@ -53,7 +53,7 @@ public class RegistrationDAO {
             return new java.sql.Date(utilDate.getTime());
         } catch (ParseException e) {
             loggerRegistrationDAO.warning("Errore nel parsing della data: " + e.getMessage());
-            throw new DBException("Formato data invalido: " + dateString, e);
+            throw new DBException("Formato data invalido: " + dateString + ". Assicurati che il formato sia yyyy-MM-dd.", e);
         }
     }
 
@@ -72,7 +72,7 @@ public class RegistrationDAO {
             try {
                 if (cstmt != null) cstmt.close();
             } catch (SQLException e) {
-                loggerRegistrationDAO.warning(erroreChiusura + e.getMessage());
+                loggerRegistrationDAO.warning(CHIUDERE_LE_RISORSE + e.getMessage());
             }
         }
     }
@@ -93,7 +93,7 @@ public class RegistrationDAO {
             try {
                 if (cstmt != null) cstmt.close();
             } catch (SQLException e) {
-                loggerRegistrationDAO.warning(erroreChiusura + e.getMessage());
+                loggerRegistrationDAO.warning(CHIUDERE_LE_RISORSE + e.getMessage());
             }
         }
     }

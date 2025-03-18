@@ -1,12 +1,18 @@
 package ldg.progettoispw.model.dao;
 
+import ldg.progettoispw.exception.DBException;
+
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.logging.Logger;
 
 public class UserDAO {
     private String[] data = new String[6];
     private final ConnectionFactory cf = ConnectionFactory.getInstance();
-    public String[] takeData(String email, String password){
+    private static final Logger logger = Logger.getLogger(UserDAO.class.getName());
+
+
+    public String[] takeData(String email, String password) throws DBException {
         try(Connection conn = cf.getDBConnection();
             CallableStatement cs = conn.prepareCall("{call takeData(?, ?, ?, ?, ?)}")){
             cs.setString(1, email);
@@ -21,13 +27,14 @@ public class UserDAO {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             this.data[2] = dateFormat.format(date);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            logger.severe("Errore nel recupero dei dati dell'utente con email " + email + ": " + e.getMessage());
+            throw new DBException("Errore durante il recupero dei dati dell'utente", e);
         }
         this.data[3] = email;
         this.data[4] = password;
         return this.data;
     }
-    public String takeSubjects(String email){
+    public String takeSubjects(String email) throws DBException {
         String subjects;
         /*devo creare un metodo, che mi permetta di prendere le subject disaccoppiate e riaccoppiarle. Processo
         * inverso da quello fatto in precedenza per la registrazione*/
@@ -38,7 +45,8 @@ public class UserDAO {
             cs.execute();
             subjects = cs.getString(2);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            logger.severe("Errore nel recupero delle materie per l'utente con email " + email + ": " + e.getMessage());
+            throw new DBException("Errore durante il recupero delle materie dell'utente", e);
         }
         return subjects;
     }
