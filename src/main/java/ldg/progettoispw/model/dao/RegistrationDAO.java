@@ -14,6 +14,7 @@ import java.text.ParseException;
 public class RegistrationDAO {
     ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
     private static final Logger loggerRegistrationDAO = Logger.getLogger(RegistrationDAO.class.getName());
+    private static final String errore_chiusura = "Errore nel chiudere le risorse: ";
 
     //check nel db dell'esistenza di un utiente con tale email e di conseguenza o crea un nuovo utente o ritorna error
     public int checkInDB(String[] values) throws DBException {
@@ -40,7 +41,7 @@ public class RegistrationDAO {
             try {
                 if (cstmt != null) cstmt.close();
             } catch (SQLException e) {
-                loggerRegistrationDAO.warning("Errore nel chiudere le risorse: " + e.getMessage());
+                loggerRegistrationDAO.warning(errore_chiusura + e.getMessage());
             }
         }
     }
@@ -72,7 +73,7 @@ public class RegistrationDAO {
             try {
                 if (cstmt != null) cstmt.close();
             } catch (SQLException e) {
-                loggerRegistrationDAO.warning("Errore nel chiudere le risorse: " + e.getMessage());
+                loggerRegistrationDAO.warning(errore_chiusura + e.getMessage());
             }
         }
     }
@@ -93,7 +94,7 @@ public class RegistrationDAO {
             try {
                 if (cstmt != null) cstmt.close();
             } catch (SQLException e) {
-                loggerRegistrationDAO.warning("Errore nel chiudere le risorse: " + e.getMessage());
+                loggerRegistrationDAO.warning(errore_chiusura + e.getMessage());
             }
         }
     }
