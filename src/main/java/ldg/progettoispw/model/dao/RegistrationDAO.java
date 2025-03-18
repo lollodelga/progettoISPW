@@ -14,7 +14,7 @@ import java.text.ParseException;
 public class RegistrationDAO {
     ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
     private static final Logger loggerRegistrationDAO = Logger.getLogger(RegistrationDAO.class.getName());
-    private static final String errore_chiusura = "Errore nel chiudere le risorse: ";
+    private static final String erroreChiusura = "Errore nel chiudere le risorse: ";
 
     //check nel db dell'esistenza di un utiente con tale email e di conseguenza o crea un nuovo utente o ritorna error
     public int checkInDB(String[] values) throws DBException {
@@ -32,16 +32,15 @@ public class RegistrationDAO {
             cstmt.setString(6, values[6]);
             cstmt.registerOutParameter(7, Types.INTEGER);
             cstmt.execute();
-            int ris = cstmt.getInt(7);
 //          il valore di ritorno può essere diverso da 0 e in tal caso significa che l'utente già esisteva
-            return ris;
+            return cstmt.getInt(7);
         } catch (SQLException e) {
             throw new DBException("Errore durante il controllo dell'email nel DB");
         } finally {
             try {
                 if (cstmt != null) cstmt.close();
             } catch (SQLException e) {
-                loggerRegistrationDAO.warning(errore_chiusura + e.getMessage());
+                loggerRegistrationDAO.warning(erroreChiusura + e.getMessage());
             }
         }
     }
@@ -73,7 +72,7 @@ public class RegistrationDAO {
             try {
                 if (cstmt != null) cstmt.close();
             } catch (SQLException e) {
-                loggerRegistrationDAO.warning(errore_chiusura + e.getMessage());
+                loggerRegistrationDAO.warning(erroreChiusura + e.getMessage());
             }
         }
     }
@@ -94,7 +93,7 @@ public class RegistrationDAO {
             try {
                 if (cstmt != null) cstmt.close();
             } catch (SQLException e) {
-                loggerRegistrationDAO.warning(errore_chiusura + e.getMessage());
+                loggerRegistrationDAO.warning(erroreChiusura + e.getMessage());
             }
         }
     }
