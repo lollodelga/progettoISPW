@@ -16,12 +16,12 @@ public class Login {
     private LoginDAO loginDAO = new LoginDAO();
     private ActionEvent actionEvent;
     private UserBean userBean;
-    private String email, password;
+    private String email;
+    private String password;
     private int result = 0;
     private final UserDAO userDAO = new UserDAO();
     private final BeanManager beanManager = BeanManager.getInstance();
     private static final Logger loggerLogin = Logger.getLogger(Login.class.getName());
-    private String[] data;
 
     public void setIstance(GController loginGCvalue, ActionEvent actionEventValue, String emailValue, String passwordValue, UserBean userBeanvalue) {
         this.loginGC = loginGCvalue;
@@ -39,9 +39,9 @@ public class Login {
                     case 0:
                         //esiste tale utente e la password è corretta perciò posso procedere con il
                         //set del bean e la notifica alla view
-                        this.data = userDAO.takeData(this.email, this.password);
-                        this.data[5] = userDAO.takeSubjects(this.email);
-                        this.userBean.set(this.data);
+                        String[] data = userDAO.takeData(this.email, this.password);
+                        data[5] = userDAO.takeSubjects(this.email);
+                        this.userBean.set(data);
                         beanManager.setUserBean(this.userBean);
                         result = 0;
                         this.loginGC.changeView(result, this.actionEvent);

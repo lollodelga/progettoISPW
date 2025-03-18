@@ -11,23 +11,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Registration {
-    private String[] valori;
-    private String email, password;
+    private String email;
+    private String password;
     private int result = 0;
     private final GController gContIstance;
     private final ActionEvent eventIstance;
-    private int change;
     public Registration(GController gController, ActionEvent event) {
-        this.gContIstance = gController;
-        this.eventIstance = event;
+        gContIstance = gController;
+        eventIstance = event;
     }
 
     public void start(String[] strings){
-        this.valori = strings;
-        this.email = strings[3];
-        this.password = strings[4];
+        String[] valori = strings;
+        int change;
+        email = strings[3];
+        password = strings[4];
         firstControl(valori);
-        if(this.result ==0){
+        if(result ==0){
             RegistrationDAO dao = new RegistrationDAO();
             if(dao.checkInDB(valori)==1){
                 //già esiste tale user e allora va notificato alla view INVIA 1
@@ -45,19 +45,19 @@ public class Registration {
                 change = 0;
                 gContIstance.changeView(change, eventIstance);
             }
-        }else if(this.result ==1){
+        }else if(result ==1){
             //errore: compilare tutti i campi INVIA 2
             change = 2;
             gContIstance.changeView(change, eventIstance);
-        }else if(this.result ==2){
+        }else if(result ==2){
             //errore: email errata o inesistente INVIA 3
             change = 3;
             gContIstance.changeView(change, eventIstance);
-        }else if(this.result ==3){
+        }else if(result ==3){
             //errore: password non rispetta i requisiti INVIA 4
             change = 4;
             gContIstance.changeView(change, eventIstance);
-        }else if(this.result ==4){
+        }else if(result ==4){
             //errore: data non valida INVIA 5
             change = 5;
             gContIstance.changeView(change, eventIstance);
@@ -66,13 +66,13 @@ public class Registration {
 
     private void firstControl(String[] strings) {
         if (checkForNullOrEmpty(strings)) {
-            this.result = 1; // Se c'è un valore null o vuoto
+            result = 1; // Se c'è un valore null o vuoto
         } else if (!isValidEmail(email)) {
-            this.result = 2; // Se l'email non è valida
+            result = 2; // Se l'email non è valida
         } else if (!isValidPassword(password)) {
-            this.result = 3; // Se la password non soddisfa i requisiti
+            result = 3; // Se la password non soddisfa i requisiti
         } else if (!isValidDate(strings[2])) {
-            this.result = 4; // Se la data non è valida
+            result = 4; // Se la data non è valida
         }
     }
 
