@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="17/03/2025 2.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/Registration.java" afterDir="false" />
-    </list>
+    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="18/03/2025 1." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -139,7 +135,7 @@
       <workItem from="1734727407080" duration="9218000" />
       <workItem from="1736349236353" duration="7740000" />
       <workItem from="1740669752919" duration="10288000" />
-      <workItem from="1742247757719" duration="6027000" />
+      <workItem from="1742247757719" duration="6762000" />
     </task>
     <task id="LOCAL-00001" summary="Primo checkpoint. Ho quasi completato la gestione dell'user.">
       <option name="closed" value="true" />
@@ -261,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742253519169</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="18/03/2025 1.">
+      <option name="closed" value="true" />
+      <created>1742298788363</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1742298788363</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +297,7 @@
     <MESSAGE value="17/03/2025 vedo la situazione attuale" />
     <MESSAGE value="17/03/2025 1." />
     <MESSAGE value="17/03/2025 2." />
-    <option name="LAST_COMMIT_MESSAGE" value="17/03/2025 2." />
+    <MESSAGE value="18/03/2025 1." />
+    <option name="LAST_COMMIT_MESSAGE" value="18/03/2025 1." />
   </component>
 </project>
