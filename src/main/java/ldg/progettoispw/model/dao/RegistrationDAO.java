@@ -17,9 +17,10 @@ public class RegistrationDAO {
 
     //check nel db dell'esistenza di un utiente con tale email e di conseguenza o crea un nuovo utente o ritorna error
     public int checkInDB(String[] values) throws DBException {
+        CallableStatement cstmt = null;
         try {
             Connection conn = connectionFactory.getDBConnection();
-            CallableStatement cstmt = conn.prepareCall("{call checkEmail(?,?,?,?,?,?,?)}"); //cambiare la chiamata di tale procedura
+            cstmt = conn.prepareCall("{call checkEmail(?,?,?,?,?,?,?)}");
             //poiché ho cambiato la procedure sul db e invece di fare solo il check fa direttamente anche l'insert, qesta cosa mi serve
             //per garantire la serializzabilità per non fare un check poi un altro e avere una lettura inconsistente.
             cstmt.setString(1, values[3]);
@@ -31,11 +32,16 @@ public class RegistrationDAO {
             cstmt.registerOutParameter(7, Types.INTEGER);
             cstmt.execute();
             int ris = cstmt.getInt(7);
-            cstmt.close();
 //          il valore di ritorno può essere diverso da 0 e in tal caso significa che l'utente già esisteva
             return ris;
         } catch (SQLException e) {
             throw new DBException("Errore durante il controllo dell'email nel DB");
+        } finally {
+            try {
+                if (cstmt != null) cstmt.close();
+            } catch (SQLException e) {
+                loggerRegistrationDAO.warning("Errore nel chiudere le risorse: " + e.getMessage());
+            }
         }
     }
 
@@ -53,28 +59,42 @@ public class RegistrationDAO {
 
     //inserisco la materia, solo se non è già presente nek DB
     public void insertSubject(String subject) throws DBException {
+        CallableStatement cstmt = null;
         try{
             Connection conn = connectionFactory.getDBConnection();
-            CallableStatement cstmt = conn.prepareCall("{call insertSubject(?)}");
+            cstmt = conn.prepareCall("{call insertSubject(?)}");
             cstmt.setString(1, subject);
             cstmt.execute();
             cstmt.close();
         } catch (SQLException e) {
             throw new DBException("Errore durante l'inserimento della materia nel DB", e);
+        } finally {
+            try {
+                if (cstmt != null) cstmt.close();
+            } catch (SQLException e) {
+                loggerRegistrationDAO.warning("Errore nel chiudere le risorse: " + e.getMessage());
+            }
         }
     }
 
     //creo l'associazione molti a molti tra users e materie
     public void createAssociation(String email, String subject) throws DBException {
-        try{
+        CallableStatement cstmt = null;
+        try {
             Connection conn = connectionFactory.getDBConnection();
-            CallableStatement cstmt = conn.prepareCall("{call creaAssociazione(?,?)}");
+            cstmt = conn.prepareCall("{call creaAssociazione(?,?)}");
             cstmt.setString(1, email);
             cstmt.setString(2, subject);
             cstmt.execute();
             cstmt.close();
         } catch (SQLException e) {
             throw new DBException("Errore durante la creazione dell'associazione tra utente e materia", e);
+        } finally {
+            try {
+                if (cstmt != null) cstmt.close();
+            } catch (SQLException e) {
+                loggerRegistrationDAO.warning("Errore nel chiudere le risorse: " + e.getMessage());
+            }
         }
     }
 }
