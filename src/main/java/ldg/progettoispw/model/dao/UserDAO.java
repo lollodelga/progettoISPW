@@ -9,7 +9,6 @@ import java.util.logging.Logger;
 public class UserDAO {
     private String[] data = new String[6];
     private final ConnectionFactory cf = ConnectionFactory.getInstance();
-    private static final Logger logger = Logger.getLogger(UserDAO.class.getName());
 
 
     public String[] takeData(String email, String password) throws DBException {

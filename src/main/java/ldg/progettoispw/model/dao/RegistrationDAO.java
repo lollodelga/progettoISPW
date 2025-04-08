@@ -68,11 +68,7 @@ public class RegistrationDAO {
         } catch (SQLException e) {
             throw new DBException("Errore durante l'inserimento della materia nel DB", e);
         } finally {
-            try {
-                if (cstmt != null) cstmt.close();
-            } catch (SQLException e) {
-                loggerRegistrationDAO.warning(CHIUDERE_LE_RISORSE + e.getMessage());
-            }
+            safeClose(cstmt);
         }
     }
 
@@ -89,11 +85,15 @@ public class RegistrationDAO {
         } catch (SQLException e) {
             throw new DBException("Errore durante la creazione dell'associazione tra utente e materia", e);
         } finally {
-            try {
-                if (cstmt != null) cstmt.close();
-            } catch (SQLException e) {
-                loggerRegistrationDAO.warning(CHIUDERE_LE_RISORSE + e.getMessage());
-            }
+            safeClose(cstmt);
+        }
+    }
+
+    private void safeClose(CallableStatement cstmt) {
+        try {
+            if (cstmt != null) cstmt.close();
+        } catch (SQLException e) {
+            loggerRegistrationDAO.warning(CHIUDERE_LE_RISORSE + e.getMessage());
         }
     }
 }

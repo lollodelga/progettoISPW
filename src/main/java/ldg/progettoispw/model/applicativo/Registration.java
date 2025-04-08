@@ -49,25 +49,22 @@ public class Registration {
                         dao.createAssociation(email, materiaFinale);
                     }
                     change = 0;
-                    gContIstance.changeView(change, eventIstance);
                 }
-            } else if (result == 1) {
-                //errore: compilare tutti i campi INVIA 2
-                change = 2;
-                gContIstance.changeView(change, eventIstance);
-            } else if (result == 2) {
-                //errore: email errata o inesistente INVIA 3
-                change = 3;
-                gContIstance.changeView(change, eventIstance);
-            } else if (result == 3) {
-                //errore: password non rispetta i requisiti INVIA 4
-                change = 4;
-                gContIstance.changeView(change, eventIstance);
-            } else if (result == 4) {
-                //errore: data non valida INVIA 5
-                change = 5;
-                gContIstance.changeView(change, eventIstance);
+            }else{
+                switch (result) {
+                    case 1: change = 2;
+                        break;
+                    case 2: change = 3;
+                        break;
+                    case 3: change = 4;
+                        break;
+                    case 4: change = 5;
+                        break;
+                    default: change = 6;
+                        break;
+                }
             }
+            gContIstance.changeView(change, eventIstance);
         }catch (DBException e) {
             // Gestisci l'errore: logga o notifica un errore generico alla vista
             loggerRegistration.warning("Errore durante la registrazione: " + e.getMessage());

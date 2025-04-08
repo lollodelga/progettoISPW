@@ -59,7 +59,7 @@ public class LoginGCon implements GController {
 
     @Override
     public void changeView(int result, ActionEvent event) {
-        switch(result){
+        switch(result) {
             case 0:
                 try {
                     root = FXMLLoader.load(getClass().getResource("/ldg/progettoispw/HomePage.fxml"));
@@ -67,29 +67,26 @@ public class LoginGCon implements GController {
                     throw new ViewException("Errore nel caricamento della view HomePage.fxml", e);
 
                 }
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
                 break;
-            case 1:
-                warningLabel.setText("ERRORE: Password errata.");
+            case 1: showWarning("ERRORE: Password errata.");
                 break;
-            case 2:
-                warningLabel.setText("ERRORE: L'utente non esiste.");
+            case 2: showWarning("ERRORE: L'utente non esiste.");
                 break;
-            case 3:
-                warningLabel.setText("ERRORE: Riempi tutti i campi.");
+            case 3: showWarning("ERRORE: Riempi tutti i campi.");
                 break;
-            case 4:
-                warningLabel.setText("ERRORE: Email non valida.");
+            case 4: showWarning("ERRORE: Email non valida.");
                 break;
-            default:
-                warningLabel.setText("ERRORE DI SISTEMA: riprovare.");
+            default: showWarning("ERRORE DI SISTEMA: riprovare.");
         }
-        if(result!=0) {
-            warningLabel.setVisible(true);
-            warningRectangle.setVisible(true);
-        }
+    }
+
+    private void showWarning(String message) {
+        warningLabel.setText(message);
+        warningLabel.setVisible(true);
+        warningRectangle.setVisible(true);
     }
 }

@@ -120,27 +120,23 @@ public class RegisterGCon implements GController {
                 stage.setScene(scene);
                 stage.show();
                 break;
-            case 1:
-                warningLabel.setText("ERRORE: email già in uso.");
+            case 1: showWarning("ERRORE: email già in uso.");
                 break;
-            case 2:
-                warningLabel.setText("ERRORE: Riempi tutti i campi.");
+            case 2: showWarning("ERRORE: Riempi tutti i campi.");
                 break;
-            case 3:
-                warningLabel.setText("ERRORE: email non valida.");
+            case 3: showWarning("ERRORE: email non valida.");
                 break;
-            case 4:
-                warningLabel.setText("ERRORE: La password non rispetta i requisiti.");
+            case 4: showWarning("ERRORE: La password non rispetta i requisiti.");
                 break;
-            case 5:
-                warningLabel.setText("ERRORE: La data non è valida.");
+            case 5: showWarning("ERRORE: La data non è valida.");
                 break;
-            default:
-                warningLabel.setText("ERRORE DI SISTEMA: riprovare");
+            default: showWarning("ERRORE DI SISTEMA: riprovare");
         }
-        if(result!=0){
-            warningLabel.setVisible(true);
-            warningRectangle.setVisible(true);
-        }
+    }
+
+    private void showWarning(String message) {
+        warningLabel.setText(message);
+        warningLabel.setVisible(true);
+        warningRectangle.setVisible(true);
     }
 }
