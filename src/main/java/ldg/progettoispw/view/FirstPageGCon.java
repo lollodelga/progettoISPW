@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import ldg.progettoispw.exception.ViewException;
 
 import java.io.IOException;
 
@@ -21,7 +22,7 @@ public class FirstPageGCon {
         try {
             root = FXMLLoader.load(getClass().getResource("/ldg/progettoispw/LoginPage.fxml"));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new ViewException("Errore nel caricamento della view LoginPage.fxml", e);
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -35,7 +36,7 @@ public class FirstPageGCon {
         try {
             root = FXMLLoader.load(getClass().getResource("/ldg/progettoispw/RegisterPage.fxml"));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new ViewException("Errore nel caricamento della view RegisterPage.fxml", e);
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

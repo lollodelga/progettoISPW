@@ -52,7 +52,6 @@ public class RegistrationDAO {
             java.util.Date utilDate = sdf.parse(dateString);
             return new java.sql.Date(utilDate.getTime());
         } catch (ParseException e) {
-            loggerRegistrationDAO.warning("Errore nel parsing della data: " + e.getMessage());
             throw new DBException("Formato data invalido: " + dateString + ". Assicurati che il formato sia yyyy-MM-dd.", e);
         }
     }

@@ -2,7 +2,7 @@ package ldg.progettoispw.controller;
 
 import javafx.event.ActionEvent;
 import ldg.progettoispw.model.bean.UserBean;
-import ldg.progettoispw.model.Login;
+import ldg.progettoispw.model.applicativo.Login;
 import ldg.progettoispw.util.GController;
 
 public class LoginController {

@@ -27,7 +27,6 @@ public class UserDAO {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             this.data[2] = dateFormat.format(date);
         } catch (SQLException e) {
-            logger.severe("Errore nel recupero dei dati dell'utente con email " + email + ": " + e.getMessage());
             throw new DBException("Errore durante il recupero dei dati dell'utente", e);
         }
         this.data[3] = email;
@@ -45,7 +44,6 @@ public class UserDAO {
             cs.execute();
             subjects = cs.getString(2);
         } catch (SQLException e) {
-            logger.severe("Errore nel recupero delle materie per l'utente con email " + email + ": " + e.getMessage());
             throw new DBException("Errore durante il recupero delle materie dell'utente", e);
         }
         return subjects;

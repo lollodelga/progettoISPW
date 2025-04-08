@@ -1,7 +1,7 @@
 package ldg.progettoispw.controller;
 
 import javafx.event.ActionEvent;
-import ldg.progettoispw.model.Registration;
+import ldg.progettoispw.model.applicativo.Registration;
 import ldg.progettoispw.util.GController;
 
 public class RegisterController {

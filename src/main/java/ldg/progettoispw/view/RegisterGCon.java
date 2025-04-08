@@ -14,6 +14,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import ldg.progettoispw.controller.RegisterController;
+import ldg.progettoispw.exception.ViewException;
 import ldg.progettoispw.util.GController;
 
 import java.io.IOException;
@@ -74,7 +75,7 @@ public class RegisterGCon implements GController {
         try {
             root = FXMLLoader.load(getClass().getResource("/ldg/progettoispw/FirstPage.fxml"));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new ViewException("Errore nel caricamento della view FirstPage.fxml", e);
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -112,7 +113,7 @@ public class RegisterGCon implements GController {
                 try {
                     root = FXMLLoader.load(getClass().getResource("/ldg/progettoispw/LoginPage.fxml"));
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    throw new ViewException("Errore nel caricamento della view LoginPage.fxml", e);
                 }
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
@@ -121,31 +122,25 @@ public class RegisterGCon implements GController {
                 break;
             case 1:
                 warningLabel.setText("ERRORE: email già in uso.");
-                warningLabel.setVisible(true);
-                warningRectangle.setVisible(true);
                 break;
             case 2:
                 warningLabel.setText("ERRORE: Riempi tutti i campi.");
-                warningLabel.setVisible(true);
-                warningRectangle.setVisible(true);
                 break;
             case 3:
                 warningLabel.setText("ERRORE: email non valida.");
-                warningLabel.setVisible(true);
-                warningRectangle.setVisible(true);
                 break;
             case 4:
                 warningLabel.setText("ERRORE: La password non rispetta i requisiti.");
-                warningLabel.setVisible(true);
-                warningRectangle.setVisible(true);
                 break;
             case 5:
                 warningLabel.setText("ERRORE: La data non è valida.");
-                warningLabel.setVisible(true);
-                warningRectangle.setVisible(true);
                 break;
             default:
                 warningLabel.setText("ERRORE DI SISTEMA: riprovare");
+        }
+        if(result!=0){
+            warningLabel.setVisible(true);
+            warningRectangle.setVisible(true);
         }
     }
 }

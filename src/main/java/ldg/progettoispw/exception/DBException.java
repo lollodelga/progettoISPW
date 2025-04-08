@@ -7,9 +7,9 @@ public class DBException extends Exception {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public DBException (String s)
+    public DBException (String message)
     {
-        super(s);
+        super(message);
     }
 
     public DBException(String message, Throwable cause) {
