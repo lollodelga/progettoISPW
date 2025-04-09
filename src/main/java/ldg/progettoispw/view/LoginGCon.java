@@ -2,31 +2,17 @@ package ldg.progettoispw.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 import ldg.progettoispw.controller.LoginController;
-import ldg.progettoispw.exception.ViewException;
 import ldg.progettoispw.util.GController;
 
-import java.io.IOException;
 
 public class LoginGCon extends BaseGCon implements GController {
     @FXML
     private TextField email;
     @FXML
     private TextField password;
-    @FXML
-    private Label warningLabel;
-    @FXML
-    private Rectangle warningRectangle;
 
-    @FXML
     public void initialize() {
         warningLabel.setVisible(false);
         warningRectangle.setVisible(false);

@@ -4,7 +4,6 @@ import ldg.progettoispw.exception.DBException;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.util.logging.Logger;
 
 public class UserDAO {
     private String[] data = new String[6];
