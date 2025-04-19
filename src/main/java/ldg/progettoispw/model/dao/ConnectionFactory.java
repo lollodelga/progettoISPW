@@ -44,11 +44,11 @@ public class ConnectionFactory {
                 logger.info("Connessione al database stabilita.");
             }
 
-            return conn;
         } catch (SQLException e) {
             logger.severe("Errore SQL durante la connessione: " + e.getMessage());
-            throw new DBException("Errore durante la connessione al database", e);
+            System.exit(1);
         }
+        return conn;
     }
 
     // Metodo per chiudere manualmente la connessione, es. alla chiusura dell'app

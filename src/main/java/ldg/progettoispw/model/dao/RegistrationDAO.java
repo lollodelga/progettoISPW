@@ -5,7 +5,6 @@ import ldg.progettoispw.exception.DBException;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.logging.Logger;
 
 public class RegistrationDAO {
 

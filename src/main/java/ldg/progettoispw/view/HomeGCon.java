@@ -6,12 +6,12 @@ import javafx.fxml.FXML;
 public abstract class HomeGCon {
 
     @FXML
-    void ModifyProfile(ActionEvent event) {
+    void modifyProfile(ActionEvent event) {
         //modifca
     }
 
     @FXML
-    void LogOut(ActionEvent event) {
+    void logOut(ActionEvent event) {
         //modifca
     }
 }

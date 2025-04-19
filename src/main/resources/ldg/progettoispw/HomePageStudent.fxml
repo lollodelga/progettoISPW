@@ -59,8 +59,8 @@
          </font>
       </Text>
       <Rectangle fill="WHITE" height="3.0" layoutX="778.0" layoutY="299.0" stroke="BLUE" strokeType="INSIDE" strokeWidth="2.0" width="222.0" />
-      <Button layoutX="778.0" layoutY="227.0" mnemonicParsing="false" onAction="#ModifyProfile" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" />
-      <Button layoutX="778.0" layoutY="265.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" />
+      <Button layoutX="778.0" layoutY="227.0" mnemonicParsing="false" onAction="#modifyProfile" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" />
+      <Button layoutX="778.0" layoutY="265.0" mnemonicParsing="false" onAction="#logOut" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: transparent;" />
       <Rectangle fill="WHITE" height="122.0" layoutX="59.0" layoutY="222.0" stroke="BLUE" strokeType="INSIDE" strokeWidth="2.0" width="660.0" />
       <Rectangle fill="WHITE" height="122.0" layoutX="59.0" layoutY="344.0" stroke="BLUE" strokeType="INSIDE" strokeWidth="2.0" width="660.0" />
    </children>
