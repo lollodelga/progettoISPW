@@ -24,7 +24,7 @@ public abstract class BaseGCon {
      * Inizializza i riferimenti agli elementi grafici di avviso.
      * Deve essere chiamato dal controller figlio (es. LoginGCon) dentro initialize().
      */
-    protected void initWarnings(Label label, Rectangle rectangle) {
+    protected void setWarningElements(Label label, Rectangle rectangle) {
         this.warningLabelRef = label;
         this.warningRectangleRef = rectangle;
     }

@@ -64,7 +64,7 @@ public class Login {
                         break;
 
                     default:
-                        logger.severe("Valore di ritorno inatteso da loginDAO.start(): " + loginResult);
+                        logger.severe(String.format("Valore di ritorno inatteso da loginDAO.start(): %d", loginResult));
                         result = DB_ERROR;
                         break;
                 }

@@ -46,9 +46,13 @@ public class ConnectionFactory {
             }
 
             return conn;
-        } catch (ClassNotFoundException | SQLException e) {
-            logger.severe("Errore durante la connessione al database: " + e.getMessage());
-            throw new DBException("Connessione al database fallita", e);
+        } catch (ClassNotFoundException e) {
+            logger.severe("Driver JDBC MySQL non trovato: " + e.getMessage());
+            throw new DBException("Driver JDBC MySQL mancante. Assicurati che sia incluso nel classpath.", e);
+
+        } catch (SQLException e) {
+            logger.severe("Errore SQL durante la connessione: " + e.getMessage());
+            throw new DBException("Errore durante la connessione al database", e);
         }
     }
 
