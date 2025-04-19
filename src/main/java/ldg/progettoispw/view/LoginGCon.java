@@ -41,15 +41,17 @@ public class LoginGCon extends BaseGCon implements GController {
     @Override
     public void changeView(int result, ActionEvent event) {
         switch(result) {
-            case 0: switchScene("/ldg/progettoispw/HomePage.fxml", event);
+            case 0: switchScene("/ldg/progettoispw/HomePageTutor.fxml", event);
                 break;
-            case 1: showWarning("ERRORE: Password errata.");
+            case 1: switchScene("/ldg/progettoispw/HomePageStudent.fxml", event);
                 break;
-            case 2: showWarning("ERRORE: L'utente non esiste.");
+            case 2: showWarning("ERRORE: Password errata.");
                 break;
-            case 3: showWarning("ERRORE: Riempi tutti i campi.");
+            case 3: showWarning("ERRORE: L'utente non esiste.");
                 break;
-            case 4: showWarning("ERRORE: Email non valida.");
+            case 4: showWarning("ERRORE: Riempi tutti i campi.");
+                break;
+            case 5: showWarning("ERRORE: Email non valida.");
                 break;
             default: showWarning("ERRORE DI SISTEMA: riprovare.");
         }

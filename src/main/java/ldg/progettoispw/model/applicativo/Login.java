@@ -52,8 +52,10 @@ public class Login {
                         String[] data = userDAO.takeData(email, password);
                         data[5] = userDAO.takeSubjects(email); // aggiungi materie all'array
                         userBean.setOfAll(data); // aggiorna il bean
-                        LoginSessionManager.saveUserSession(userBean); // salva la sessione
-                        break;
+                        LoginSessionManager.saveUserSession(userBean);// salva la sessione
+                        int viewCode = (loginDAO.getUserRole(email, password) == 1) ? 0 : 1;
+                        controller.changeView(viewCode, event);
+                        return;
 
                     case WRONG_PASSWORD:
                         result = WRONG_PASSWORD;
@@ -64,7 +66,6 @@ public class Login {
                         break;
 
                     default:
-                        logger.severe(String.format("Valore di ritorno inatteso da loginDAO.start(): %d", loginResult));
                         result = DB_ERROR;
                         break;
                 }
@@ -73,7 +74,6 @@ public class Login {
             logger.severe("Errore durante l'accesso al database: " + e.getMessage());
             result = DB_ERROR;
         }
-
         controller.changeView(result, event);
     }
 

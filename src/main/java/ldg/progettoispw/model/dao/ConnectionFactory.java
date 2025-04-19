@@ -31,7 +31,6 @@ public class ConnectionFactory {
     public synchronized Connection getDBConnection() throws DBException {
         try {
             if (conn == null || conn.isClosed()) {
-                Class.forName("com.mysql.cj.jdbc.Driver");
 
                 Properties properties = new Properties();
                 properties.put("user", "root");
@@ -46,10 +45,6 @@ public class ConnectionFactory {
             }
 
             return conn;
-        } catch (ClassNotFoundException e) {
-            logger.severe("Driver JDBC MySQL non trovato: " + e.getMessage());
-            throw new DBException("Driver JDBC MySQL mancante. Assicurati che sia incluso nel classpath.", e);
-
         } catch (SQLException e) {
             logger.severe("Errore SQL durante la connessione: " + e.getMessage());
             throw new DBException("Errore durante la connessione al database", e);

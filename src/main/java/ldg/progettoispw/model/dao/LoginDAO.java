@@ -56,4 +56,21 @@ public class LoginDAO {
             throw new DBException("Errore durante la verifica della password", e);
         }
     }
+
+    public int getUserRole(String email, String password) throws DBException {
+        try (Connection conn = connectionFactory.getDBConnection();
+             CallableStatement cs = conn.prepareCall("{call getUserRole(?, ?, ?)}")) {
+
+            cs.setString(1, email);
+            cs.setString(2, password);
+            cs.registerOutParameter(3, Types.INTEGER);
+
+            cs.execute();
+
+            return cs.getInt(3);
+
+        } catch (SQLException e) {
+            throw new DBException("Errore durante il recupero del ruolo dell'utente", e);
+        }
+    }
 }
