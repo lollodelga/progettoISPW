@@ -20,6 +20,10 @@ public abstract class BaseGCon {
     protected Label warningLabel;
     protected Rectangle warningRectangle;
 
+    protected void setWarningElements(Label label, Rectangle rectangle) {
+        this.warningLabel = label;
+        this.warningRectangle = rectangle;
+    }
     protected void switchScene(String fxmlPath, ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource(fxmlPath));

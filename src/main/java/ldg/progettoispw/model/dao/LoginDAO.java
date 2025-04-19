@@ -9,53 +9,52 @@ import java.sql.Types;
 import java.util.logging.Logger;
 
 public class LoginDAO {
-    private int result = 0;
     private final ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
-    private static final Logger loggerLoginDAO = Logger.getLogger(LoginDAO.class.getName());
+    private static final Logger logger = Logger.getLogger(LoginDAO.class.getName());
 
+    // Codici di risposta
+    public static final int SUCCESS = 0;
+    public static final int WRONG_PASSWORD = 1;
+    public static final int USER_NOT_FOUND = 2;
 
-    public int start(String email, String password) {
-        try{
-            if (userExists(email)) {
-                result = 1;
-                if (finalCheck(email, password)) {
-                    result = 0;
-                }
+    public int start(String email, String password) throws DBException {
+        if (userExists(email)) {
+            if (checkPassword(email, password)) {
+                return SUCCESS;
             } else {
-                result = 2;
+                return WRONG_PASSWORD;
             }
-        } catch (DBException e) {
-            loggerLoginDAO.warning("Errore del DB durante il login " + e.getMessage());
+        } else {
+            return USER_NOT_FOUND;
         }
-        return result;
     }
 
     private boolean userExists(String email) throws DBException {
-        boolean check;
-        try(Connection conn = connectionFactory.getDBConnection();
-            CallableStatement callableStatement = conn.prepareCall("{call checkExistence(?, ?)}")){
-            callableStatement.setString(1, email);
-            callableStatement.registerOutParameter(2, Types.BOOLEAN);
-            callableStatement.executeQuery();
-            check = callableStatement.getBoolean(2);
+        try (Connection conn = connectionFactory.getDBConnection();
+             CallableStatement cs = conn.prepareCall("{call checkExistence(?, ?)}")) {
+
+            cs.setString(1, email);
+            cs.registerOutParameter(2, Types.BOOLEAN);
+            cs.execute();
+            return cs.getBoolean(2);
+
         } catch (SQLException e) {
-            throw new DBException("durante la verifica dell'esistenza dell'utente");
+            throw new DBException("Errore durante la verifica dell'esistenza dell'utente", e);
         }
-        return check;
     }
 
-    private boolean finalCheck(String email, String password) throws DBException {
-        boolean check;
+    private boolean checkPassword(String email, String password) throws DBException {
         try (Connection conn = connectionFactory.getDBConnection();
-             CallableStatement callableStatement = conn.prepareCall("{call checkPassword(?, ?, ?)}")){
-            callableStatement.setString(1, email);
-            callableStatement.setString(2, password);
-            callableStatement.registerOutParameter(3, Types.BOOLEAN);
-            callableStatement.executeQuery();
-            check = callableStatement.getBoolean(3);
+             CallableStatement cs = conn.prepareCall("{call checkPassword(?, ?, ?)}")) {
+
+            cs.setString(1, email);
+            cs.setString(2, password);
+            cs.registerOutParameter(3, Types.BOOLEAN);
+            cs.execute();
+            return cs.getBoolean(3);
+
         } catch (SQLException e) {
-            throw new DBException("durante la verifica della password");
+            throw new DBException("Errore durante la verifica della password", e);
         }
-        return check;
     }
 }

@@ -2,98 +2,75 @@ package ldg.progettoispw.model.dao;
 
 import ldg.progettoispw.exception.DBException;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Logger;
-import java.text.ParseException;
-
 
 public class RegistrationDAO {
-    ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
-    private static final Logger loggerRegistrationDAO = Logger.getLogger(RegistrationDAO.class.getName());
-    private static final String CHIUDERE_LE_RISORSE = "Errore nel chiudere le risorse: ";
+    private static final Logger logger = Logger.getLogger(RegistrationDAO.class.getName());
+    private static final String RESOURCE_CLOSE_ERROR = "Errore nel chiudere le risorse: ";
 
-    //check nel db dell'esistenza di un utiente con tale email e di conseguenza o crea un nuovo utente o ritorna error
+    private final ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
+
+    // Verifica se l'utente esiste già e, se no, lo inserisce
     public int checkInDB(String[] values) throws DBException {
-        CallableStatement cstmt = null;
-        try {
-            Connection conn = connectionFactory.getDBConnection();
-            cstmt = conn.prepareCall("{call checkEmail(?,?,?,?,?,?,?)}");
-            //poiché ho cambiato la procedure sul db e invece di fare solo il check fa direttamente anche l'insert, qesta cosa mi serve
-            //per garantire la serializzabilità per non fare un check poi un altro e avere una lettura inconsistente.
-            cstmt.setString(1, values[3]);
-            cstmt.setString(2, values[4]);
-            cstmt.setString(3, values[0]);
-            cstmt.setString(4, values[1]);
-            cstmt.setDate(5, convertToSQLDate(values[2]));
-            cstmt.setString(6, values[6]);
+        try (
+                Connection conn = connectionFactory.getDBConnection();
+                CallableStatement cstmt = conn.prepareCall("{call checkEmail(?,?,?,?,?,?,?)}")
+        ) {
+            cstmt.setString(1, values[3]); // email
+            cstmt.setString(2, values[4]); // password
+            cstmt.setString(3, values[0]); // nome
+            cstmt.setString(4, values[1]); // cognome
+            cstmt.setDate(5, convertToSQLDate(values[2])); // data di nascita
+            cstmt.setString(6, values[6]); // ruolo
             cstmt.registerOutParameter(7, Types.INTEGER);
+
             cstmt.execute();
-//          il valore di ritorno può essere diverso da 0 e in tal caso significa che l'utente già esisteva
             return cstmt.getInt(7);
+
         } catch (SQLException e) {
-            throw new DBException("Errore durante il controllo dell'email nel DB");
-        } finally {
-            try {
-                if (cstmt != null) cstmt.close();
-            } catch (SQLException e) {
-                loggerRegistrationDAO.warning(CHIUDERE_LE_RISORSE + e.getMessage());
-            }
+            throw new DBException("Errore durante il controllo dell'email nel DB", e);
         }
     }
 
-    // Metodo per convertire la stringa in una data SQL
-    private java.sql.Date convertToSQLDate(String dateString) throws DBException {
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            java.util.Date utilDate = sdf.parse(dateString);
-            return new java.sql.Date(utilDate.getTime());
-        } catch (ParseException e) {
-            throw new DBException("Formato data invalido: " + dateString + ". Assicurati che il formato sia yyyy-MM-dd.", e);
-        }
-    }
-
-    //inserisco la materia, solo se non è già presente nek DB
+    // Inserisce una materia (se non già presente)
     public void insertSubject(String subject) throws DBException {
-        CallableStatement cstmt = null;
-        try{
-            Connection conn = connectionFactory.getDBConnection();
-            cstmt = conn.prepareCall("{call insertSubject(?)}");
+        try (
+                Connection conn = connectionFactory.getDBConnection();
+                CallableStatement cstmt = conn.prepareCall("{call insertSubject(?)}")
+        ) {
             cstmt.setString(1, subject);
             cstmt.execute();
-            cstmt.close();
         } catch (SQLException e) {
             throw new DBException("Errore durante l'inserimento della materia nel DB", e);
-        } finally {
-            safeClose(cstmt);
         }
     }
 
-    //creo l'associazione molti a molti tra users e materie
+    // Crea l'associazione user <-> subject
     public void createAssociation(String email, String subject) throws DBException {
-        CallableStatement cstmt = null;
-        try {
-            Connection conn = connectionFactory.getDBConnection();
-            cstmt = conn.prepareCall("{call creaAssociazione(?,?)}");
+        try (
+                Connection conn = connectionFactory.getDBConnection();
+                CallableStatement cstmt = conn.prepareCall("{call creaAssociazione(?,?)}")
+        ) {
             cstmt.setString(1, email);
             cstmt.setString(2, subject);
             cstmt.execute();
-            cstmt.close();
         } catch (SQLException e) {
             throw new DBException("Errore durante la creazione dell'associazione tra utente e materia", e);
-        } finally {
-            safeClose(cstmt);
         }
     }
 
-    private void safeClose(CallableStatement cstmt) {
+    // Conversione data in formato SQL
+    private java.sql.Date convertToSQLDate(String dateString) throws DBException {
         try {
-            if (cstmt != null) cstmt.close();
-        } catch (SQLException e) {
-            loggerRegistrationDAO.warning(CHIUDERE_LE_RISORSE + e.getMessage());
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false);
+            java.util.Date parsedDate = sdf.parse(dateString);
+            return new java.sql.Date(parsedDate.getTime());
+        } catch (ParseException e) {
+            throw new DBException("Formato data invalido. Usa yyyy-MM-dd: " + dateString, e);
         }
     }
 }

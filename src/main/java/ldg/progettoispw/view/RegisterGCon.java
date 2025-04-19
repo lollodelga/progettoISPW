@@ -2,9 +2,11 @@ package ldg.progettoispw.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import ldg.progettoispw.controller.RegisterController;
 import ldg.progettoispw.util.GController;
@@ -31,6 +33,10 @@ public class RegisterGCon extends BaseGCon implements GController {
     private RadioButton tutorButton;
     @FXML
     private Text textMateria;
+    @FXML
+    private Label warningLabel;
+    @FXML
+    private Rectangle warningRectangle;
 
     @FXML
     public void initialize() {
@@ -38,6 +44,8 @@ public class RegisterGCon extends BaseGCon implements GController {
         warningRectangle.setVisible(false);
         textMateria.setVisible(false);
         materie.setVisible(false);
+        setWarningElements(warningLabel, warningRectangle);
+
     }
 
     @FXML

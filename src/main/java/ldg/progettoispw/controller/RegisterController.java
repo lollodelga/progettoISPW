@@ -5,28 +5,35 @@ import ldg.progettoispw.model.applicativo.Registration;
 import ldg.progettoispw.util.GController;
 
 public class RegisterController {
-    private String[] registValues = new String[7];
-    private GController gControllerIstance;
-    private ActionEvent actionEvent;
+    private final String[] registValues = new String[7];
+    private final GController gController;
+    private final ActionEvent event;
 
-/*chiamando il costruttore non di default, passo al controller l'indirizzo del grafico, affinché possa passarlo al model,
- che avrà il compito finale di contattare la view per aggiornarla*/
+    /**
+     * Costruttore: riceve riferimenti alla view (controller grafico e evento)
+     * da passare al model per aggiornamenti futuri.
+     */
     public RegisterController(GController gController, ActionEvent event) {
-        this.gControllerIstance = gController;
-        this.actionEvent = event;
+        this.gController = gController;
+        this.event = event;
     }
 
-/*il controller grafico chiama il comando della registrazione e manda i dati scritti nella view. Dopo di ciò spetta al
-* controller applicativo chiamare metodi del model, affinché si possano fare gli appositi controlli sui dati*/
-    public void register(String name, String surname, String birth, String email, String password, String subjects, String role){
-        this.registValues[0] = name;
-        this.registValues[1] = surname;
-        this.registValues[2] = birth;
-        this.registValues[3] = email;
-        this.registValues[4] = password;
-        this.registValues[5] = subjects;
-        this.registValues[6] = role;
-        Registration reg = new Registration(gControllerIstance, actionEvent);
-        reg.start(registValues);
+    /**
+     * Metodo chiamato dal controller grafico con i dati inseriti dall’utente.
+     * Passa tutto al model (`Registration`) per i controlli e l’elaborazione.
+     */
+    public void register(String name, String surname, String birth, String email,
+                         String password, String subjects, String role) {
+
+        registValues[0] = name;
+        registValues[1] = surname;
+        registValues[2] = birth;
+        registValues[3] = email;
+        registValues[4] = password;
+        registValues[5] = subjects;
+        registValues[6] = role;
+
+        Registration registration = new Registration(gController, event);
+        registration.start(registValues);
     }
 }

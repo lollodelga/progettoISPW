@@ -2,7 +2,9 @@ package ldg.progettoispw.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.shape.Rectangle;
 import ldg.progettoispw.controller.LoginController;
 import ldg.progettoispw.util.GController;
 
@@ -12,10 +14,15 @@ public class LoginGCon extends BaseGCon implements GController {
     private TextField email;
     @FXML
     private TextField password;
+    @FXML
+    private Label warningLabel;
+    @FXML
+    private Rectangle warningRectangle;
 
     public void initialize() {
         warningLabel.setVisible(false);
         warningRectangle.setVisible(false);
+        setWarningElements(warningLabel, warningRectangle);
     }
 
     @FXML

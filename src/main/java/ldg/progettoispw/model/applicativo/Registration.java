@@ -9,115 +9,91 @@ import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Registration {
-    private String email;
-    private String password;
-    private int result = 0;
-    private final GController gContIstance;
-    private final ActionEvent eventIstance;
-    private static final Logger loggerRegistration = Logger.getLogger(Registration.class.getName());
+    private static final Logger logger = Logger.getLogger(Registration.class.getName());
 
+    // Codici di errore/risultato
+    private static final int OK = 0;
+    private static final int USER_EXISTS = 1;
+    private static final int EMPTY_FIELD = 2;
+    private static final int INVALID_EMAIL = 3;
+    private static final int INVALID_PASSWORD = 4;
+    private static final int INVALID_DATE = 5;
+    private static final int DB_ERROR = 6;
+
+    private final GController gController;
+    private final ActionEvent event;
 
     public Registration(GController gController, ActionEvent event) {
-        gContIstance = gController;
-        eventIstance = event;
+        this.gController = gController;
+        this.event = event;
     }
 
-    public void start(String[] strings){
-        String[] valori = strings;
-        int change;
-        email = strings[3];
-        password = strings[4];
-        firstControl(valori);
+    public void start(String[] inputData) {
+        int result = validateInput(inputData);
+
         try {
-            if (result == 0) {
+            if (result == OK) {
+                String email = inputData[3];
                 RegistrationDAO dao = new RegistrationDAO();
-                if (dao.checkInDB(valori) == 1) {
-                    //già esiste tale user e allora va notificato alla view INVIA 1
-                    change = 1;
-                    gContIstance.changeView(change, this.eventIstance);
+
+                if (dao.checkInDB(inputData) == 1) {
+                    result = USER_EXISTS;
                 } else {
-                    // nuovo utente aggiunto. Dividi la stringa in base alla virgola e rimuovi eventuali spazi
-                    // per poi chiamare n volte quanti sono le materie il metodo per creare l'associazione materia user
-                    String[] materie = valori[5].split(",");
-                    for (String materia : materie) {
-                        String materiaFinale = materia.trim(); // Rimuovi spazi bianchi
-                        dao.insertSubject(materiaFinale);
-                        dao.createAssociation(email, materiaFinale);
+                    String[] subjects = inputData[5].split(",");
+                    for (String subject : subjects) {
+                        String trimmed = subject.trim();
+                        dao.insertSubject(trimmed);
+                        dao.createAssociation(email, trimmed);
                     }
-                    change = 0;
-                }
-            }else{
-                switch (result) {
-                    case 1: change = 2;
-                        break;
-                    case 2: change = 3;
-                        break;
-                    case 3: change = 4;
-                        break;
-                    case 4: change = 5;
-                        break;
-                    default: change = 6;
-                        break;
                 }
             }
-            gContIstance.changeView(change, eventIstance);
-        }catch (DBException e) {
-            // Gestisci l'errore: logga o notifica un errore generico alla vista
-            loggerRegistration.warning("Errore durante la registrazione: " + e.getMessage());
-            change = 6; // Codice per errore DB
-            gContIstance.changeView(change, eventIstance);
+
+        } catch (DBException e) {
+            logger.warning("Errore durante la registrazione: " + e.getMessage());
+            result = DB_ERROR;
         }
+
+        gController.changeView(result, event);
     }
 
-    private void firstControl(String[] strings) {
-        if (checkForNullOrEmpty(strings)) {
-            result = 1; // Se c'è un valore null o vuoto
-        } else if (!isValidEmail(email)) {
-            result = 2; // Se l'email non è valida
-        } else if (!isValidPassword(password)) {
-            result = 3; // Se la password non soddisfa i requisiti
-        } else if (!isValidDate(strings[2])) {
-            result = 4; // Se la data non è valida
-        }
+    private int validateInput(String[] data) {
+        if (hasEmptyFields(data)) return EMPTY_FIELD;
+        if (!isValidEmail(data[3])) return INVALID_EMAIL;
+        if (!isValidPassword(data[4])) return INVALID_PASSWORD;
+        if (!isValidDate(data[2])) return INVALID_DATE;
+        return OK;
     }
 
-    // Metodo che verifica se ci sono valori nulli o vuoti
-    private boolean checkForNullOrEmpty(String[] strings) {
+    private boolean hasEmptyFields(String[] data) {
         for (int i = 0; i < 6; i++) {
-            if (strings[i] == null || strings[i].trim().isEmpty()) {
-                return true; // Se c'è un elemento null o vuoto
+            if (data[i] == null || data[i].trim().isEmpty()) {
+                return true;
             }
         }
         return false;
     }
 
-    // Metodo che verifica la validità dell'email tramite regex
     private boolean isValidEmail(String email) {
         String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,7}$";
-        Pattern pattern = Pattern.compile(emailRegex);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
+        return Pattern.matches(emailRegex, email);
     }
 
-    // Metodo che verifica la validità della password tramite regex
     private boolean isValidPassword(String password) {
         String passwordRegex = "^(?=.*[A-Z])(?=.*\\d)(?=.*[:!?$%&;])[A-Za-z\\d:!?$%&;]{8,16}$";
-        return password.matches(passwordRegex);
+        return Pattern.matches(passwordRegex, password);
     }
 
-    // Metodo che verifica la validità della data
-    private boolean isValidDate(String dateString) {
+    private boolean isValidDate(String dateStr) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        dateFormat.setLenient(false); // Rende il controllo rigoroso
+        dateFormat.setLenient(false);
         try {
-            Date date = dateFormat.parse(dateString);
-            return !date.after(new Date()); // Controlla che la data non sia nel futuro
+            Date date = dateFormat.parse(dateStr);
+            return !date.after(new Date());
         } catch (ParseException e) {
-            return false; // La data non è valida
+            return false;
         }
     }
 }

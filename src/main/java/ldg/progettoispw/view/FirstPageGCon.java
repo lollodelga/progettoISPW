@@ -12,35 +12,25 @@ import ldg.progettoispw.exception.ViewException;
 import java.io.IOException;
 
 public class FirstPageGCon {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-    //questo metodo avvia la schermata del LoginPage dopo aver ricevuto l'evento del click sul tasto login
-    @FXML
-    void startlogin(MouseEvent event){
+    private void changeView(String fxmlPath, MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("/ldg/progettoispw/LoginPage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource(fxmlPath));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
-            throw new ViewException("Errore nel caricamento della view LoginPage.fxml", e);
+            throw new ViewException("Errore nel caricamento della view: " + fxmlPath, e);
         }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
-    //questo metodo avvia la schermata del RegisterPage dopo aver ricevuto l'evento del click sul tasto register
     @FXML
-    void startRegister(MouseEvent event){
-        try {
-            root = FXMLLoader.load(getClass().getResource("/ldg/progettoispw/RegisterPage.fxml"));
-        } catch (IOException e) {
-            throw new ViewException("Errore nel caricamento della view RegisterPage.fxml", e);
-        }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    void startLogin(MouseEvent event) {
+        changeView("/ldg/progettoispw/LoginPage.fxml", event);
+    }
+
+    @FXML
+    void startRegister(MouseEvent event) {
+        changeView("/ldg/progettoispw/RegisterPage.fxml", event);
     }
 }

@@ -6,22 +6,16 @@ import ldg.progettoispw.model.applicativo.Login;
 import ldg.progettoispw.util.GController;
 
 public class LoginController {
-    private UserBean user = new UserBean();
-    private Login login = new Login();
-    private GController loginGC;
-    private String email;
-    private String password;
-    private ActionEvent actionEvent;
+    private final Login login;
+    private final UserBean user;
 
-    public LoginController(String emailValue, String passwordValue, GController gController, ActionEvent actionEventvalue) {
-        this.email = emailValue;
-        this.password = passwordValue;
-        this.loginGC = gController;
-        this.actionEvent = actionEventvalue;
-        login.setIstance(this.loginGC, this.actionEvent, this.email, this.password, this.user);
+    public LoginController(String email, String password, GController gController, ActionEvent event) {
+        this.user = new UserBean();
+        this.login = new Login();
+        login.setInstance(gController, event, email, password, user);
     }
 
-    public void start(){
+    public void start() {
         login.login();
     }
 }

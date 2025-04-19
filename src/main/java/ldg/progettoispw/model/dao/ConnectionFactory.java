@@ -1,5 +1,7 @@
 package ldg.progettoispw.model.dao;
 
+import ldg.progettoispw.exception.DBException;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,14 +9,18 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 public class ConnectionFactory {
+    private static final Logger logger = Logger.getLogger(ConnectionFactory.class.getName());
+
+    // Singleton dell'istanza della classe
     private static ConnectionFactory instance = null;
+
+    // Connessione singola per tutta la durata dell'app (per utente)
     private Connection conn = null;
-    private static final Logger loggerConnection = Logger.getLogger(ConnectionFactory.class.getName());
 
     private ConnectionFactory() {
+        // costruttore privato
     }
 
-    /** Singleton */
     public static synchronized ConnectionFactory getInstance() {
         if (instance == null) {
             instance = new ConnectionFactory();
@@ -22,18 +28,39 @@ public class ConnectionFactory {
         return instance;
     }
 
-    public synchronized Connection getDBConnection() {
-        if (this.conn == null) {
-            try {
+    public synchronized Connection getDBConnection() throws DBException {
+        try {
+            if (conn == null || conn.isClosed()) {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+
                 Properties properties = new Properties();
                 properties.put("user", "root");
                 properties.put("password", "Forzalazio1900");
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/progetto_ispw", properties);
 
-            } catch (SQLException e) {
-                loggerConnection.warning("Errore durante la connessione al database: " + e.getMessage());
+                conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/progetto_ispw",
+                        properties
+                );
+
+                logger.info("Connessione al database stabilita.");
             }
+
+            return conn;
+        } catch (ClassNotFoundException | SQLException e) {
+            logger.severe("Errore durante la connessione al database: " + e.getMessage());
+            throw new DBException("Connessione al database fallita", e);
         }
-        return this.conn;
+    }
+
+    // Metodo per chiudere manualmente la connessione, es. alla chiusura dell'app
+    public synchronized void closeConnection() {
+        try {
+            if (conn != null && !conn.isClosed()) {
+                conn.close();
+                logger.info("Connessione al database chiusa.");
+            }
+        } catch (SQLException e) {
+            logger.warning("Errore durante la chiusura della connessione: " + e.getMessage());
+        }
     }
 }
