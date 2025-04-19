@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 
 public class LoginDAO {
     private final ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
-    private static final Logger logger = Logger.getLogger(LoginDAO.class.getName());
 
     // Codici di risposta
     public static final int SUCCESS = 0;

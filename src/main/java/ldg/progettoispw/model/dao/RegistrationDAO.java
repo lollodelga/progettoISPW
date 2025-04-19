@@ -8,8 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Logger;
 
 public class RegistrationDAO {
-    private static final Logger logger = Logger.getLogger(RegistrationDAO.class.getName());
-    private static final String RESOURCE_CLOSE_ERROR = "Errore nel chiudere le risorse: ";
 
     private final ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
 
