@@ -13,8 +13,8 @@ public class RegistrationDAO {
 
     // Verifica se l'utente esiste già e, se no, lo inserisce
     public int checkInDB(String[] values) throws DBException {
+        Connection conn = connectionFactory.getDBConnection();
         try (
-                Connection conn = connectionFactory.getDBConnection();
                 CallableStatement cstmt = conn.prepareCall("{call checkEmail(?,?,?,?,?,?,?)}")
         ) {
             cstmt.setString(1, values[3]); // email
@@ -35,8 +35,8 @@ public class RegistrationDAO {
 
     // Inserisce una materia (se non già presente)
     public void insertSubject(String subject) throws DBException {
+        Connection conn = connectionFactory.getDBConnection();
         try (
-                Connection conn = connectionFactory.getDBConnection();
                 CallableStatement cstmt = conn.prepareCall("{call insertSubject(?)}")
         ) {
             cstmt.setString(1, subject);
@@ -48,8 +48,8 @@ public class RegistrationDAO {
 
     // Crea l'associazione user <-> subject
     public void createAssociation(String email, String subject) throws DBException {
+        Connection conn = connectionFactory.getDBConnection();
         try (
-                Connection conn = connectionFactory.getDBConnection();
                 CallableStatement cstmt = conn.prepareCall("{call creaAssociazione(?,?)}")
         ) {
             cstmt.setString(1, email);

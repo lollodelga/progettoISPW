@@ -6,7 +6,6 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.logging.Logger;
 
 public class LoginDAO {
     private final ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
@@ -29,7 +28,8 @@ public class LoginDAO {
     }
 
     private boolean userExists(String email) throws DBException {
-        try (Connection conn = connectionFactory.getDBConnection();
+        Connection conn = connectionFactory.getDBConnection();
+        try (
              CallableStatement cs = conn.prepareCall("{call checkExistence(?, ?)}")) {
 
             cs.setString(1, email);
@@ -43,7 +43,8 @@ public class LoginDAO {
     }
 
     private boolean checkPassword(String email, String password) throws DBException {
-        try (Connection conn = connectionFactory.getDBConnection();
+        Connection conn = connectionFactory.getDBConnection();
+        try (
              CallableStatement cs = conn.prepareCall("{call checkPassword(?, ?, ?)}")) {
 
             cs.setString(1, email);
@@ -58,7 +59,8 @@ public class LoginDAO {
     }
 
     public int getUserRole(String email, String password) throws DBException {
-        try (Connection conn = connectionFactory.getDBConnection();
+        Connection conn = connectionFactory.getDBConnection();
+        try (
              CallableStatement cs = conn.prepareCall("{call getUserRole(?, ?, ?)}")) {
 
             cs.setString(1, email);

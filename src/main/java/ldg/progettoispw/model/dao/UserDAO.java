@@ -10,7 +10,8 @@ public class UserDAO {
 
     public String[] takeData(String email, String password) throws DBException {
         String[] data = new String[6];
-        try (Connection conn = cf.getDBConnection();
+        Connection conn = cf.getDBConnection();
+        try (
              CallableStatement cs = conn.prepareCall("{call takeData(?, ?, ?, ?, ?)}")) {
 
             cs.setString(1, email);
@@ -38,7 +39,8 @@ public class UserDAO {
     }
 
     public String takeSubjects(String email) throws DBException {
-        try (Connection conn = cf.getDBConnection();
+        Connection conn = cf.getDBConnection();
+        try (
              CallableStatement cs = conn.prepareCall("{call getSubjects(?, ?)}")) {
 
             cs.setString(1, email);

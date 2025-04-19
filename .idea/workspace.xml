@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="19/04/2025 1.3">
-      <change afterPath="$PROJECT_DIR$/session.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomeGCon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomeStudentGCon.java" afterDir="false" />
+    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="19/04/2025 1.4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/applicativo/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/applicativo/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/ConnectionFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/LoginDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomePageGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomeTutorGCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/LoginGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/LoginGCon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/RegistrationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/RegistrationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +148,7 @@
       <workItem from="1742247757719" duration="14388000" />
       <workItem from="1742373317009" duration="98000" />
       <workItem from="1744097527523" duration="8273000" />
-      <workItem from="1745072376107" duration="15011000" />
+      <workItem from="1745072376107" duration="15653000" />
     </task>
     <task id="LOCAL-00001" summary="Primo checkpoint. Ho quasi completato la gestione dell'user.">
       <option name="closed" value="true" />
@@ -395,7 +390,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745091946437</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="19/04/2025 1.4">
+      <option name="closed" value="true" />
+      <created>1745094926279</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1745094926279</updated>
+    </task>
+    <task id="LOCAL-00032" summary="19/04/2025 1.4">
+      <option name="closed" value="true" />
+      <created>1745094935525</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1745094935525</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +425,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Start 24/12 pt2" />
     <MESSAGE value="Start 24/12 pt3" />
     <MESSAGE value="08/01 1. maintainability" />
     <MESSAGE value="08/01 2. maintainability" />
@@ -439,6 +449,7 @@
     <MESSAGE value="19/04/2025 1.1" />
     <MESSAGE value="19/04/2025 1.2" />
     <MESSAGE value="19/04/2025 1.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="19/04/2025 1.3" />
+    <MESSAGE value="19/04/2025 1.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="19/04/2025 1.4" />
   </component>
 </project>
