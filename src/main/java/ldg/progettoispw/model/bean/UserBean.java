@@ -9,7 +9,7 @@ public class UserBean {
     private String password;
     private String subjects;
 
-    public UserBean() {}
+    public UserBean() {/*costruttore di default*/}
 
     // Getters e setters
     public String getName() { return name; }

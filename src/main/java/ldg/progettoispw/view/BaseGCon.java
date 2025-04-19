@@ -17,13 +17,24 @@ public abstract class BaseGCon {
     protected Scene scene;
     protected Parent root;
 
-    protected Label warningLabel;
-    protected Rectangle warningRectangle;
+    private Label warningLabelRef;
+    private Rectangle warningRectangleRef;
 
-    protected void setWarningElements(Label label, Rectangle rectangle) {
-        this.warningLabel = label;
-        this.warningRectangle = rectangle;
+    /**
+     * Inizializza i riferimenti agli elementi grafici di avviso.
+     * Deve essere chiamato dal controller figlio (es. LoginGCon) dentro initialize().
+     */
+    protected void initWarnings(Label label, Rectangle rectangle) {
+        this.warningLabelRef = label;
+        this.warningRectangleRef = rectangle;
     }
+
+    /**
+     * Cambia scena verso il file FXML specificato.
+     *
+     * @param fxmlPath percorso del file FXML da caricare
+     * @param event    evento che ha causato il cambio (serve per recuperare lo stage)
+     */
     protected void switchScene(String fxmlPath, ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource(fxmlPath));
@@ -36,11 +47,16 @@ public abstract class BaseGCon {
         }
     }
 
+    /**
+     * Mostra un messaggio di errore tramite gli elementi grafici inizializzati.
+     *
+     * @param message messaggio da visualizzare
+     */
     protected void showWarning(String message) {
-        if (warningLabel != null && warningRectangle != null) {
-            warningLabel.setText(message);
-            warningLabel.setVisible(true);
-            warningRectangle.setVisible(true);
+        if (warningLabelRef != null && warningRectangleRef != null) {
+            warningLabelRef.setText(message);
+            warningLabelRef.setVisible(true);
+            warningRectangleRef.setVisible(true);
         }
     }
 }
