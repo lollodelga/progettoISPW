@@ -28,13 +28,12 @@ class LoginControllerTest {
         String testPassword = "Password1234?";
 
         DummyGController dummyGController = new DummyGController();
-        ActionEvent fakeEvent = new ActionEvent(); // Simulazione
 
         LoginController controller = new LoginController(
                 testEmail,
                 testPassword,
                 dummyGController,
-                fakeEvent
+                null
         );
 
         controller.start();
