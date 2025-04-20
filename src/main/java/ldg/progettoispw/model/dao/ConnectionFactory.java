@@ -52,7 +52,7 @@ public class ConnectionFactory {
 
                 if (tentativo < MAX_TENTATIVI) {
                     try {
-                        Thread.sleep(ATTESA_MS);
+                        Thread.sleep(ATTESA_MS); // NOSONAR - retry mechanism, non serve wait()
                     } catch (InterruptedException ie) {
                         Thread.currentThread().interrupt();
                         logger.severe("Tentativo interrotto.");
@@ -60,7 +60,6 @@ public class ConnectionFactory {
                     }
                 } else {
                     logger.severe("Connessione al database fallita dopo " + MAX_TENTATIVI + " tentativi.");
-                    throw new RuntimeException("Impossibile connettersi al database dopo più tentativi.", e);
                 }
             }
         }
