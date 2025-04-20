@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="20/04/2025 1.0">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/ConnectionFactory.java" afterDir="false" />
+    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="20/04/2025 1.2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
       <recent name="ldg.progettoispw.view" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ldg.progettoispw.Main" />
       <module name="progettoISPW" />
@@ -90,8 +90,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progettoISPW" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="JUnit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="JUnit" />
+      <option name="MAIN_CLASS_NAME" value="JUnit.LoginControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginControllerTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -146,7 +162,7 @@
       <workItem from="1742373317009" duration="98000" />
       <workItem from="1744097527523" duration="8273000" />
       <workItem from="1745072376107" duration="15680000" />
-      <workItem from="1745105758802" duration="1384000" />
+      <workItem from="1745105758802" duration="2162000" />
     </task>
     <task id="LOCAL-00001" summary="Primo checkpoint. Ho quasi completato la gestione dell'user.">
       <option name="closed" value="true" />
@@ -420,7 +436,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745106419804</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="20/04/2025 1.1">
+      <option name="closed" value="true" />
+      <created>1745107322559</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1745107322559</updated>
+    </task>
+    <task id="LOCAL-00036" summary="20/04/2025 1.2">
+      <option name="closed" value="true" />
+      <created>1745107471169</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1745107471169</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,8 +471,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="08/01 2. maintainability" />
-    <MESSAGE value="13/01 1. maintainability" />
     <MESSAGE value="27/02/25 1. maintainability" />
     <MESSAGE value="27/02/25 2. maintainability" />
     <MESSAGE value="17/03/2025 vedo la situazione attuale" />
@@ -464,6 +494,8 @@
     <MESSAGE value="19/04/2025 1.4" />
     <MESSAGE value="19/04/2025 1.5" />
     <MESSAGE value="20/04/2025 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="20/04/2025 1.0" />
+    <MESSAGE value="20/04/2025 1.1" />
+    <MESSAGE value="20/04/2025 1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="20/04/2025 1.2" />
   </component>
 </project>
