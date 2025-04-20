@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="19/04/2025 1.5">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="20/04/2025 1.0">
       <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/ConnectionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/RegistrationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/RegistrationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomeGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomeGCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageStudent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageStudent.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageTutor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageTutor.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +146,7 @@
       <workItem from="1742373317009" duration="98000" />
       <workItem from="1744097527523" duration="8273000" />
       <workItem from="1745072376107" duration="15680000" />
-      <workItem from="1745105758802" duration="644000" />
+      <workItem from="1745105758802" duration="1384000" />
     </task>
     <task id="LOCAL-00001" summary="Primo checkpoint. Ho quasi completato la gestione dell'user.">
       <option name="closed" value="true" />
@@ -417,7 +412,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745095574640</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="20/04/2025 1.0">
+      <option name="closed" value="true" />
+      <created>1745106419804</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1745106419804</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +439,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="08/01 1. maintainability" />
     <MESSAGE value="08/01 2. maintainability" />
     <MESSAGE value="13/01 1. maintainability" />
     <MESSAGE value="27/02/25 1. maintainability" />
@@ -461,6 +463,7 @@
     <MESSAGE value="19/04/2025 1.3" />
     <MESSAGE value="19/04/2025 1.4" />
     <MESSAGE value="19/04/2025 1.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="19/04/2025 1.5" />
+    <MESSAGE value="20/04/2025 1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="20/04/2025 1.0" />
   </component>
 </project>

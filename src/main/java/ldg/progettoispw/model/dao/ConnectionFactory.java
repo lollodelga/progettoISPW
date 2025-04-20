@@ -1,7 +1,5 @@
 package ldg.progettoispw.model.dao;
 
-import ldg.progettoispw.exception.DBException;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
