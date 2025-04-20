@@ -28,7 +28,7 @@ public class ConnectionFactory {
         return instance;
     }
 
-    public synchronized Connection getDBConnection() throws DBException {
+    public synchronized Connection getDBConnection(){
         try {
             if (conn == null || conn.isClosed()) {
 
