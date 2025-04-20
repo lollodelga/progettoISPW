@@ -26,27 +26,46 @@ public class ConnectionFactory {
         return instance;
     }
 
-    public synchronized Connection getDBConnection(){
-        try {
-            if (conn == null || conn.isClosed()) {
+    public synchronized Connection getDBConnection() {
+        final int MAX_TENTATIVI = 3;
+        final int ATTESA_MS = 2000;
 
-                Properties properties = new Properties();
-                properties.put("user", "root");
-                properties.put("password", "Forzalazio1900");
+        for (int tentativo = 1; tentativo <= MAX_TENTATIVI; tentativo++) {
+            try {
+                if (conn == null || conn.isClosed()) {
+                    Properties properties = new Properties();
+                    properties.put("user", "root");
+                    properties.put("password", "Forzalazio1900");
 
-                conn = DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/progetto_ispw",
-                        properties
-                );
+                    conn = DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/progetto_ispw",
+                            properties
+                    );
 
-                logger.info("Connessione al database stabilita.");
+                    logger.info("Connessione al database stabilita.");
+                }
+
+                return conn;
+
+            } catch (SQLException e) {
+                logger.warning("Tentativo " + tentativo + " fallito: " + e.getMessage());
+
+                if (tentativo < MAX_TENTATIVI) {
+                    try {
+                        Thread.sleep(ATTESA_MS);
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                        logger.severe("Tentativo interrotto.");
+                        break;
+                    }
+                } else {
+                    logger.severe("Connessione al database fallita dopo " + MAX_TENTATIVI + " tentativi.");
+                    throw new RuntimeException("Impossibile connettersi al database dopo più tentativi.", e);
+                }
             }
-
-        } catch (SQLException e) {
-            logger.severe("Errore SQL durante la connessione: " + e.getMessage());
-            System.exit(1);
         }
-        return conn;
+
+        return null;
     }
 
     // Metodo per chiudere manualmente la connessione, es. alla chiusura dell'app
