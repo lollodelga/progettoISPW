@@ -63,23 +63,19 @@ public class Login {
                     int role = loginDAO.getUserRole(email, password);
                     int viewCode = (role == 1) ? 0 : 1;
 
-                    logger.info("Login riuscito per: " + email + " con ruolo: " + (role == 1 ? "Tutor" : "Studente"));
-                    controller.changeView(viewCode, event);
+                    controller.changeView(viewCode, event); //login valido
                     break;
 
                 case LoginDAO.WRONG_PASSWORD:
-                    logger.info("Login fallito: password errata per " + email);
-                    controller.changeView(WRONG_PASSWORD, event); // codice 2: password errata
+                    controller.changeView(WRONG_PASSWORD, event); //password errata
                     break;
 
                 case LoginDAO.USER_NOT_FOUND:
-                    logger.info("Login fallito: utente non trovato con email " + email);
-                    controller.changeView(USER_NOT_FOUND, event); // codice 3: utente non esiste
+                    controller.changeView(USER_NOT_FOUND, event); //utente non esiste
                     break;
 
                 default:
-                    logger.severe("Login fallito: codice sconosciuto " + loginResult);
-                    controller.changeView(DB_ERROR, event);
+                    controller.changeView(DB_ERROR, event); //errore del DB
                     break;
             }
 

@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="20/04/2025 1.5">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/test.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/tests" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/session.csv" beforeDir="false" afterPath="$PROJECT_DIR$/session.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/applicativo/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/applicativo/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/LoginDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/LoginGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/LoginGCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cssfiles/DefaultStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cssfiles/DefaultStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/FirstPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/FirstPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageStudent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageStudent.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageTutor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageTutor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/LoginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/LoginPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/RegisterPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/RegisterPage.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="22/04/2025 1.0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,7 +167,7 @@
       <workItem from="1745317489351" duration="1008000" />
       <workItem from="1745318530905" duration="7049000" />
       <workItem from="1745331099117" duration="4456000" />
-      <workItem from="1745339567246" duration="2316000" />
+      <workItem from="1745339567246" duration="2673000" />
     </task>
     <task id="LOCAL-00001" summary="Primo checkpoint. Ho quasi completato la gestione dell'user.">
       <option name="closed" value="true" />
@@ -512,7 +497,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745137428802</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="22/04/2025 1.0">
+      <option name="closed" value="true" />
+      <created>1745342122751</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1745342122751</updated>
+    </task>
+    <task id="LOCAL-00043" summary="22/04/2025 1.0">
+      <option name="closed" value="true" />
+      <created>1745342155388</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1745342155388</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +532,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="17/03/2025 1." />
     <MESSAGE value="17/03/2025 2." />
     <MESSAGE value="18/03/2025 1." />
     <MESSAGE value="18/03/2025 1.1" />
@@ -556,6 +556,7 @@
     <MESSAGE value="20/04/2025 1.3" />
     <MESSAGE value="20/04/2025 1.4" />
     <MESSAGE value="20/04/2025 1.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="20/04/2025 1.5" />
+    <MESSAGE value="22/04/2025 1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="22/04/2025 1.0" />
   </component>
 </project>
