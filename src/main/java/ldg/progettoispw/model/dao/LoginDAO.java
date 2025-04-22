@@ -16,15 +16,15 @@ public class LoginDAO {
     public static final int USER_NOT_FOUND = 2;
 
     public int start(String email, String password) throws DBException {
-        if (userExists(email)) {
-            if (checkPassword(email, password)) {
-                return SUCCESS;
-            } else {
-                return WRONG_PASSWORD;
-            }
-        } else {
+        if (!userExists(email)) {
             return USER_NOT_FOUND;
         }
+
+        if (!checkPassword(email, password)) {
+            return WRONG_PASSWORD;
+        }
+
+        return SUCCESS;
     }
 
     private boolean userExists(String email) throws DBException {

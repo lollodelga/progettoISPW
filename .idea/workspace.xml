@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="20/04/2025 1.5" />
+    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="20/04/2025 1.5">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/test.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/tests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session.csv" beforeDir="false" afterPath="$PROJECT_DIR$/session.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/applicativo/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/applicativo/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/dao/LoginDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/LoginGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/LoginGCon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cssfiles/DefaultStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cssfiles/DefaultStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/FirstPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/FirstPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageStudent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageStudent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageTutor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageTutor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/LoginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/LoginPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/RegisterPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/RegisterPage.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -63,9 +78,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.46206897&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -163,7 +178,11 @@
       <workItem from="1745072376107" duration="15680000" />
       <workItem from="1745105758802" duration="2499000" />
       <workItem from="1745108677284" duration="357000" />
-      <workItem from="1745134531239" duration="2734000" />
+      <workItem from="1745134531239" duration="3032000" />
+      <workItem from="1745317489351" duration="1008000" />
+      <workItem from="1745318530905" duration="7049000" />
+      <workItem from="1745331099117" duration="4456000" />
+      <workItem from="1745339567246" duration="2316000" />
     </task>
     <task id="LOCAL-00001" summary="Primo checkpoint. Ho quasi completato la gestione dell'user.">
       <option name="closed" value="true" />
@@ -485,7 +504,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745136965776</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="20/04/2025 1.5">
+      <option name="closed" value="true" />
+      <created>1745137428802</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1745137428802</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

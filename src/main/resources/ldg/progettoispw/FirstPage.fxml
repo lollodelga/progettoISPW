@@ -4,47 +4,63 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../cssfiles/DefaultStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ldg.progettoispw.view.FirstPageGCon">
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ldg.progettoispw.view.FirstPageGCon"
+            prefHeight="600.0" prefWidth="1000.0">
+
    <children>
-      <ImageView fitHeight="537.0" fitWidth="1000.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+
+      <!-- Top bar -->
+      <HBox prefHeight="63.0" prefWidth="1000.0"
+            style="-fx-background-color: white;"
+            alignment="CENTER_LEFT"
+            spacing="10"
+            fx:id="BarraSuperiore">
+         <padding>
+            <Insets top="0" right="20" bottom="0" left="20"/>
+         </padding>
+         <ImageView fitHeight="48.0" fitWidth="171.0"
+                    pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../images/tutorLOGO.png" />
+            </image>
+         </ImageView>
+         <Pane HBox.hgrow="ALWAYS" />
+      </HBox>
+
+      <!-- Background image full height -->
+      <ImageView fitHeight="537.0" fitWidth="1000.0"
+                 layoutY="63.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@../../images/wallpaper.jpeg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="379.0" layoutX="350.0" layoutY="130.0" stroke="BLUE" strokeType="INSIDE" strokeWidth="2.0" width="300.0" />
-      <Text layoutX="433.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benvenuto...">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Text>
-      <Button fx:id="loginButton" defaultButton="true" layoutX="398.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#startLogin" prefHeight="78.0" prefWidth="204.0" text="ACCEDI">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Button>
-      <Button fx:id="registerButton" defaultButton="true" layoutX="398.0" layoutY="395.0" mnemonicParsing="false" onMouseClicked="#startRegister" prefHeight="78.0" prefWidth="204.0" text="REGISTRATI">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Button>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text layoutX="460.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="oppure">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Text>
-      <AnchorPane fx:id="BarraSuperiore" prefHeight="63.0" prefWidth="1000.0">
-         <children>
-            <ImageView fitHeight="48.0" fitWidth="171.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/tutorLOGO.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
+
+      <!-- Semitrasparente background -->
+      <Pane layoutX="350.0" layoutY="130.0" prefWidth="300.0" prefHeight="379.0"
+            style="-fx-background-color: #3498DB; -fx-opacity: 0.6; -fx-background-radius: 10;" />
+
+      <!-- Contenuto centrale -->
+      <VBox layoutX="350.0" layoutY="130.0"
+            spacing="20" alignment="CENTER"
+            prefWidth="300.0" prefHeight="379.0">
+
+         <Text text="Benvenuto..." style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+         <Button fx:id="loginButton" text="ACCEDI" onMouseClicked="#startLogin"
+                 prefWidth="240.0" prefHeight="60.0"
+                 style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 18px;" />
+         <Text text="oppure" style="-fx-font-size: 16px;" />
+         <Button fx:id="registerButton" text="REGISTRATI" onMouseClicked="#startRegister"
+                 prefWidth="240.0" prefHeight="60.0"
+                 style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 18px;" />
+
+      </VBox>
    </children>
 </AnchorPane>

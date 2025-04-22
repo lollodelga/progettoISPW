@@ -1,15 +1,69 @@
+/* ===============================
+   Palette: Blu, Bianco, Nero
+   =============================== */
+.root {
+    --main-blue: #3498DB;
+    --black: #000000;
+    --white: #FFFFFF;
+}
+
+/* ===============================
+   Bottoni
+   =============================== */
 .button {
+    -fx-background-color: var(--main-blue);
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-cursor: hand;
+    -fx-padding: 10 20;
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
-    -fx-background-radius: 20;
-    -fx-border-radius: 20;
-    -fx-text-fill: black;
 }
+
+.button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* ===============================
+   TextField
+   =============================== */
 .text-field {
-    -fx-border-color: blue;
+    -fx-border-color: var(--main-blue);
     -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 6 10;
 }
+
+/* ===============================
+   Barra superiore
+   =============================== */
 #BarraSuperiore {
-    -fx-border-color: transparent transparent blue transparent;
+    -fx-background-color: var(--white);
+    -fx-border-color: transparent transparent var(--main-blue) transparent;
     -fx-border-width: 0 0 2 0;
+}
+
+/* ===============================
+   Label generiche
+   =============================== */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: var(--black);
+}
+
+/* ===============================
+   Contenitori generici
+   =============================== */
+.container {
+    -fx-background-color: var(--white);
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color: var(--main-blue);
+    -fx-border-width: 2;
 }

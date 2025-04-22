@@ -15,12 +15,13 @@ import java.util.regex.Pattern;
 public class Login {
 
     // Codici di risposta
+    private static final int ERROR = -1;
     private static final int OK = 0;
-    private static final int WRONG_PASSWORD = 1;
-    private static final int USER_NOT_FOUND = 2;
+    private static final int WRONG_PASSWORD = 2;
     private static final int EMPTY_FIELDS = 3;
     private static final int INVALID_EMAIL = 4;
-    private static final int DB_ERROR = 5;
+    private static final int USER_NOT_FOUND = 5;
+    private static final int DB_ERROR = 6;
 
     private static final Logger logger = Logger.getLogger(Login.class.getName());
 
@@ -42,44 +43,58 @@ public class Login {
     }
 
     public void login() {
-        int result = validateInput();
+        int validationResult = validateInput();
+        if (validationResult != OK) {
+            return; // La view è già aggiornata da validateInput()
+        }
 
         try {
-            if (result == OK) {
-                int loginResult = loginDAO.start(email, password);
-                switch (loginResult) {
-                    case OK:
-                        String[] data = userDAO.takeData(email, password);
-                        data[5] = userDAO.takeSubjects(email); // aggiungi materie all'array
-                        userBean.setOfAll(data); // aggiorna il bean
-                        LoginSessionManager.saveUserSession(userBean);// salva la sessione
-                        int viewCode = (loginDAO.getUserRole(email, password) == 1) ? 0 : 1;
-                        controller.changeView(viewCode, event);
-                        return;
+            int loginResult = loginDAO.start(email, password);
 
-                    case WRONG_PASSWORD:
-                        result = WRONG_PASSWORD;
-                        break;
+            switch (loginResult) {
+                case LoginDAO.SUCCESS:
+                    // Login riuscito, recupera i dati
+                    String[] data = userDAO.takeData(email, password);
+                    data[5] = userDAO.takeSubjects(email);
+                    userBean.setOfAll(data);
+                    LoginSessionManager.saveUserSession(userBean);
 
-                    case USER_NOT_FOUND:
-                        result = USER_NOT_FOUND;
-                        break;
+                    // Ruolo: 1 = Tutor, 2 = Studente
+                    int role = loginDAO.getUserRole(email, password);
+                    int viewCode = (role == 1) ? 0 : 1;
 
-                    default:
-                        result = DB_ERROR;
-                        break;
-                }
+                    logger.info("Login riuscito per: " + email + " con ruolo: " + (role == 1 ? "Tutor" : "Studente"));
+                    controller.changeView(viewCode, event);
+                    break;
+
+                case LoginDAO.WRONG_PASSWORD:
+                    logger.info("Login fallito: password errata per " + email);
+                    controller.changeView(WRONG_PASSWORD, event); // codice 2: password errata
+                    break;
+
+                case LoginDAO.USER_NOT_FOUND:
+                    logger.info("Login fallito: utente non trovato con email " + email);
+                    controller.changeView(USER_NOT_FOUND, event); // codice 3: utente non esiste
+                    break;
+
+                default:
+                    logger.severe("Login fallito: codice sconosciuto " + loginResult);
+                    controller.changeView(DB_ERROR, event);
+                    break;
             }
+
         } catch (DBException e) {
-            logger.severe("Errore durante l'accesso al database: " + e.getMessage());
-            result = DB_ERROR;
+            logger.severe("Errore DB: " + e.getMessage());
+            controller.changeView(DB_ERROR, event);
         }
-        controller.changeView(result, event);
     }
+
+
 
     private int validateInput() {
         if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
-            return EMPTY_FIELDS;
+            controller.changeView(EMPTY_FIELDS, event);
+            return ERROR;
         }
 
         String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,7}$";
@@ -87,7 +102,8 @@ public class Login {
         Matcher matcher = pattern.matcher(email);
 
         if (!matcher.matches()) {
-            return INVALID_EMAIL;
+            controller.changeView(INVALID_EMAIL, event);
+            return ERROR;
         }
 
         return OK;

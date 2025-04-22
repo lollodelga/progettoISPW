@@ -47,11 +47,11 @@ public class LoginGCon extends BaseGCon implements GController {
                 break;
             case 2: showWarning("ERRORE: Password errata.");
                 break;
-            case 3: showWarning("ERRORE: L'utente non esiste.");
+            case 3: showWarning("ERRORE: Riempi tutti i campi.");
                 break;
-            case 4: showWarning("ERRORE: Riempi tutti i campi.");
+            case 4: showWarning("ERRORE: Email non valida.");
                 break;
-            case 5: showWarning("ERRORE: Email non valida.");
+            case 5: showWarning("ERRORE: L'utente non esiste.");
                 break;
             default: showWarning("ERRORE DI SISTEMA: riprovare.");
         }
