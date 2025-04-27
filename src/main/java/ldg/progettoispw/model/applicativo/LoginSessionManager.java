@@ -3,20 +3,20 @@ package ldg.progettoispw.model.applicativo;
 import ldg.progettoispw.model.bean.UserBean;
 
 import java.io.*;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.logging.Logger;
 
 public class LoginSessionManager {
     private static final String SESSION_FILE = "session.csv";
     private static final Logger logger = Logger.getLogger(LoginSessionManager.class.getName());
 
-    private LoginSessionManager() {
-        // Costruttore privato per evitare l'istanziazione
-    }
     // Salva i dati dell'utente loggato nel file
     public static void saveUserSession(UserBean userBean) {
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(SESSION_FILE))) {
             String[] data = userBean.getArray();
+            // Importante: Separo ogni campo con una virgola, ma dentro il campo 'materie' sostituisco eventuali virgole
+            data[5] = data[5].replace(",", ";"); // Proteggo il campo materie
             writer.write(String.join(",", data));
         } catch (IOException e) {
             logger.severe("Errore durante il salvataggio della sessione: " + e.getMessage());
@@ -28,9 +28,13 @@ public class LoginSessionManager {
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(SESSION_FILE))) {
             String line = reader.readLine();
             if (line != null) {
-                String[] data = line.split(",");
+                String[] data = line.split(",", 6); // divido massimo in 6 parti
+                // Rimetto eventuali ';' dentro le materie
+                if (data.length == 6) {
+                    data[5] = data[5].replace(";", ",");
+                }
                 UserBean userBean = new UserBean();
-                userBean.setOfAll(data); // ho il set di tutti i dati del login
+                userBean.setOfAll(data); // popola tutto il bean
                 return userBean;
             }
         } catch (IOException e) {
@@ -43,6 +47,7 @@ public class LoginSessionManager {
     public static void clearSession() {
         try {
             Files.deleteIfExists(Paths.get(SESSION_FILE));
+            logger.info("Sessione cancellata.");
         } catch (IOException e) {
             logger.warning("Errore durante la cancellazione della sessione: " + e.getMessage());
         }

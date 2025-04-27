@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="22/04/2025 1.0" />
+    <list default="true" id="2ecd891e-ae9c-4262-a08a-f9b91ab233b4" name="Changes" comment="22/04/2025 1.0">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/controller/HomePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session.csv" beforeDir="false" afterPath="$PROJECT_DIR$/session.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/applicativo/LoginSessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/applicativo/LoginSessionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/model/bean/UserBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/util/GController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/util/GController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomeGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomeGCon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomeStudentGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomeStudentGCon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomeTutorGCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ldg/progettoispw/view/HomeTutorGCon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cssfiles/DefaultStyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cssfiles/RegistrationStyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageTutor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ldg/progettoispw/HomePageTutor.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +36,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "lollodelga"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/lollodelga/progettoISPW.git",
+    "accountId": "9a3e5bb6-9fdf-4852-9d3c-d2e445eefb39"
+  }
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -114,8 +139,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19416.15" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19416.15" />
       </set>
     </attachedChunks>
   </component>
@@ -167,7 +192,9 @@
       <workItem from="1745317489351" duration="1008000" />
       <workItem from="1745318530905" duration="7049000" />
       <workItem from="1745331099117" duration="4456000" />
-      <workItem from="1745339567246" duration="2673000" />
+      <workItem from="1745339567246" duration="3062000" />
+      <workItem from="1745686369744" duration="130000" />
+      <workItem from="1745686722859" duration="9390000" />
     </task>
     <task id="LOCAL-00001" summary="Primo checkpoint. Ho quasi completato la gestione dell'user.">
       <option name="closed" value="true" />
@@ -513,7 +540,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745342155388</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="22/04/2025 1.0">
+      <option name="closed" value="true" />
+      <created>1745342446083</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1745342446083</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

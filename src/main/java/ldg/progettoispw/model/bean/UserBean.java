@@ -14,6 +14,12 @@ public class UserBean {
     // Getters e setters
     public String getName() { return name; }
 
+    public String getSurname() { return surname; }
+
+    public String getBirthDate() { return birthDate; }
+
+    public String getSubjects() { return subjects; }
+
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
